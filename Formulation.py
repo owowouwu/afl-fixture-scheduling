@@ -12,12 +12,12 @@ teams = ["Adelaide Crows", "Brisbane Lions", "Carlton Blues", "Collingwood Magpi
 team_numbers = {team: number for number, team in enumerate(sorted(teams), start=0)}
 print(team_numbers['Carlton Blues'])
 
-locations = ['Victoria','NSW','SA','WA','QLD']
+locations = ['VIC','NSW','SA','WA','QLD']
 location_numbers = {location: number for number, location in enumerate(sorted(locations), start=0)}
 
 
-home_locations = ['SA','QLD','Victoria','Victoria','Victoria','WA','Victoria','QLD','NSW','Victoria',
-                          'Victoria','Victoria','SA','Victoria','Victoria','NSW','WA','Victoria']
+home_locations = ['SA','QLD','VIC','VIC','VIC','WA','VIC','QLD','NSW','VIC',
+                          'VIC','VIC','SA','VIC','VIC','NSW','WA','VIC']
 
 
 ranking = [10,2,5,1,11,14,12,15,7,16,4,17,3,13,6,8,18,9] # 2023 pre-finals rankings
@@ -27,7 +27,7 @@ team_fans = [60,45,93,102,79,61,81,20,33,72,68,50,60,100,58,63,100,55] # 2023 nu
 stadiums = ['MCG','Marvel','GMHBA','Adelaide Oval','Optus','Gabba','HBS','SCG','Giants']
 stadium_numbers = {stadium: number for number, stadium in enumerate(sorted(stadiums), start=0)}
 
-stadium_locations = ['Victoria','Victoria','Victoria','SA','WA','QLD','QLD','NSW','NSW']
+stadium_locations = ['VIC','VIC','VIC','SA','WA','QLD','QLD','NSW','NSW']
 
 home_stadiums = [['Adelaide Oval'],['Gabba'],['MCG','Marvel'],['MCG','Marvel'],['MCG','Marvel'],['Optus'],['GMHBA'],
                  ['HBS'],['Giants'],['MCG'],['MCG'],['Marvel'],['Adelaide Oval'],
@@ -182,7 +182,7 @@ def generate_initial_fixture():
         print("No feasible solution found.")
     
     
-    return #fixture_matrix
+    return fixture_matrix
 
 def feasibility(fixture):
     violated = 0
@@ -250,4 +250,5 @@ def fixture_attractiveness(fixture,max_value,violated_factor,critical_factor):
     return total_score - violated_factor*violated - critical_factor*critical
     
 
-generate_initial_fixture()
+fixture_matrix = generate_initial_fixture()
+np.save('solutions/mip_initial_fixture.npy', fixture_matrix)

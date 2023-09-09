@@ -1,0 +1,54 @@
+{
+    "VIC": {
+        "coord": [0, 0],
+        "stadiums": {
+            "MCG": {
+                "size": 100
+            },
+            "Marvel": {
+                "size": 53
+            },
+            "GMHBA": {
+                "size": 40
+            }
+        }
+    },
+    "NSW": {
+        "coord": [0, 0],
+        "stadiums": {
+            "SCG": {
+                "size": 47
+            },
+            "Giants": {
+                "size": 24
+            }
+        }
+    },
+    "SA": {
+        "coord": [0, 0],
+        "stadiums": {
+            "Adelaide Oval": {
+                "size": 54
+            }
+        }
+    },
+    "WA": {
+        "coord": [0, 0],
+        "stadiums": {
+            "Optus": {
+                "size": 60
+            }
+        }
+    },
+    "QLD": {
+        "coord": [0, 0],
+        "stadiums": {
+            "Gabba": {
+                "size": 39
+            },
+            "HBS": {
+                "size": 27
+            }
+        }
+    }
+}

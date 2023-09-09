@@ -1,0 +1,128 @@
+{
+    "Adelaide Crows": {
+        "home_location": "SA",
+        "home_stadiums": ["Adelaide Oval"],
+        "rivals": ["Port Adelaide Power"],
+        "ranking": 10,
+        "fans": 60
+    },
+    "Brisbane Lions": {
+        "home_location": "QLD",
+        "home_stadiums": ["Gabba"],
+        "rivals": ["Gold Coast Suns", "Collingwood Magpies"],
+        "ranking": 2,
+        "fans": 45
+    },
+    "Carlton Blues": {
+        "home_location": "VIC",
+        "home_stadiums": ["MCG", "Marvel"],
+        "rivals": ["Essendon Bombers", "Richmond Tigers", "Collingwood Magpies", "Fremantle Dockers"],
+        "ranking": 5,
+        "fans": 93
+    },
+    "Collingwood Magpies": {
+        "home_location": "VIC",
+        "home_stadiums": ["MCG", "Marvel"],
+        "rivals": ["Carlton Blues", "Essendon Bombers", "Brisbane Lions", "Melbourne Demons", "Richmond Tigers", "Geelong Cats", "Hawthorn Hawks", "West Coast Eagles", "Port Adelaide Power"],
+        "ranking": 1,
+        "fans": 102
+    },
+    "Essendon Bombers": {
+        "home_location": "VIC",
+        "home_stadiums": ["MCG", "Marvel"],
+        "rivals": ["Carlton Blues", "Richmond Tigers", "Collingwood Magpies", "Fremantle Dockers"],
+        "ranking": 11,
+        "fans": 79
+    },
+    "Fremantle Dockers": {
+        "home_location": "WA",
+        "home_stadiums": ["Optus"],
+        "rivals": ["Carlton Blues", "West Coast Eagles"],
+        "ranking": 14,
+        "fans": 61
+    },
+    "Geelong Cats": {
+        "home_location": "VIC",
+        "home_stadiums": ["GMHBA"],
+        "rivals": ["Collingwood Magpies", "Hawthorn Hawks", "Essendon Bombers", "North Melbourne Kangaroos"],
+        "ranking": 12,
+        "fans": 81
+    },
+    "Gold Coast Suns": {
+        "home_location": "QLD",
+        "home_stadiums": ["HBS"],
+        "rivals": ["Brisbane Lions"],
+        "ranking": 15,
+        "fans": 20
+    },
+    "Greater Western Sydney Giants": {
+        "home_location": "NSW",
+        "home_stadiums": ["Giants"],
+        "rivals": ["Sydney Swans", "Western Bulldogs"],
+        "ranking": 7,
+        "fans": 33
+    },
+    "Hawthorn Hawks": {
+        "home_location": "VIC",
+        "home_stadiums": ["MCG"],
+        "rivals": ["Hawthorn Hawks", "Geelong Cats", "Essendon Bombers", "North Melbourne Kangaroos"],
+        "ranking": 16,
+        "fans": 72
+    },
+    "Melbourne Demons": {
+        "home_location": "VIC",
+        "home_stadiums": ["MCG"],
+        "rivals": ["Collingwood Magpies"],
+        "ranking": 4,
+        "fans": 68
+    },
+    "North Melbourne Kangaroos": {
+        "home_location": "VIC",
+        "home_stadiums": ["Marvel"],
+        "rivals": ["Carlton Blues", "Collingwood Magpies", "Richmond Tigers", "Hawthorn Hawks", "Essendon Bombers", "North Melbourne Kangaroos"],
+        "ranking": 17,
+        "fans": 50
+    },
+    "Port Adelaide Power": {
+        "home_location": "SA",
+        "home_stadiums": ["Adelaide Oval"],
+        "rivals": ["Collingwood Magpies", "Essendon Bombers"],
+        "ranking": 3,
+        "fans": 60
+    },
+    "Richmond Tigers": {
+        "home_location": "VIC",
+        "home_stadiums": ["MCG"],
+        "rivals": ["Carlton Blues", "Collingwood Magpies", "Essendon Bombers"],
+        "ranking": 13,
+        "fans": 100
+    },
+    "St Kilda Saints": {
+        "home_location": "VIC",
+        "home_stadiums": ["Marvel"],
+        "rivals": ["Sydney Swans"],
+        "ranking": 6,
+        "fans": 58
+    },
+    "Sydney Swans": {
+        "home_location": "NSW",
+        "home_stadiums": ["SCG"],
+        "rivals": ["West Coast Eagles", "St Kilda Saints", "Greater Western Sydney Giants", "Hawthorn Hawks"],
+        "ranking": 8,
+        "fans": 63
+    },
+    "West Coast Eagles": {
+        "home_location": "WA",
+        "home_stadiums": ["Optus"],
+        "rivals": ["Fremantle Dockers", "Sydney Swans", "Collingwood Magpies"],
+        "ranking": 18,
+        "fans": 55
+    },
+    "Western Bulldogs": {
+        "home_location": "VIC",
+        "home_stadiums": ["Marvel"],
+        "rivals": ["Greater Western Sydney Giants"],
+        "ranking": 9,
+        "fans": 100
+    }
+}
