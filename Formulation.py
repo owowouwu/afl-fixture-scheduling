@@ -110,65 +110,89 @@ def generate_initial_fixture():
 
     # Create a new model
     model = Model("fixture_scheduling")
+    model.setParam('Timelimit', 7200)
+    model.setParam("MIPGap", 0.02)
     
     index = [(i, j, s, t, r) for i in Ts for j in Ts for s in Ss for t in timeslots for r in rounds]
+    timeslots_index = [(t, r) for t in timeslots for r in rounds]
+    
     fixture = model.addVars(index,vtype=GRB.BINARY)
-        
-    for i in Ts: # Each team plays once a week
+    game_on = model.addVars(timeslots_index,vtype=GRB.BINARY)
+
+     # Constraint: Each team plays once a week
+    for i in Ts: 
         for r in rounds:
             model.addConstr(quicksum(fixture[i, j, s, t, r] + fixture[j, i, s, t, r] for j in Ts for s in Ss for t in timeslots) == 1, "MatchesEachRound")
             
-    
+    # Constraint: Each team has eleven home games
     for i in Ts:
         model.addConstr(quicksum(fixture[i, j, stadium_numbers[s], t, r] for j in Ts for s in home_stadiums[i] 
                                  for t in timeslots for r in rounds) == 11, f"HomeGames_{i}")
-        
-    for i in Ts:
-        for s in list(set(stadiums)-set(home_stadiums[i])):
-            model.addConstr(quicksum(fixture[i, j, stadium_numbers[s], t, r] for j in Ts for t in timeslots 
-                                     for r in rounds) == 0, f"HomeGames_{i}")
     
-    
+    # Constraint: Teams can't play themselves, and play all other teams once or twice (not twice away, or twice home)
     for i in Ts:
         model.addConstr(quicksum(fixture[i, i, s, t, r] for s in Ss for t in timeslots for r in rounds) <= 0, f"DoNotPlaySelf")
         for j in Ts:
             if i != j:
-                model.addConstr(quicksum(fixture[i, j, s, t, r] + fixture[j, i, s, t, r] for s in Ss for t in timeslots for r in rounds) <= 2, f"PlayMoreThanTwice_{i}_{j}")
+                model.addConstr(quicksum(fixture[i, j, s, t, r] for s in Ss for t in timeslots for r in rounds) <= 1, f"PlayMoreThanTwice_{i}_{j}")
                 model.addConstr(quicksum(fixture[i, j, s, t, r] + fixture[j, i, s, t, r] for s in Ss for t in timeslots for r in rounds) >= 1, f"PlayAtLeastOnce_{i}_{j}")
                 
-    #for i in Ts:
-     #   for r in rounds[:-1]:
-      #      model.addConstr(1 >= quicksum(fixture[i, j, s, t, r]+fixture[i, j, s, t, r] for j in Ts for s in Ss for t in [0,1]) + 
-       #                     quicksum(fixture[i, j, s, t, r+1]+fixture[i, j, s, t, r+1] for j in Ts for s in Ss for t in [5,6]),
-        #                    f"MoreThanFiveDayBreak_{i}")
-            
-    
-    # Constraint 5: Two games in a row outside home location
+     # Constraint: At least a five day break         
     for i in Ts:
         for r in rounds[:-1]:
-            model.addConstr(quicksum(fixture[j, i, stadium_numbers[s], t, r_] for j in Ts for s in list(set(stadiums) - set(home_location_stadiums[i])) 
-                                 for t in timeslots for r_ in range(r,r+2)) <= 1, f"TwoGamesInRowOutside_{i}_{r}")
+            model.addConstr(1 >= quicksum(fixture[i, j, s, t, r]+fixture[j, i, s, t, r] for j in Ts for s in Ss for t in [5,6]) + 
+                            quicksum(fixture[i, j, s, t, r+1]+fixture[j, i, s, t, r+1] for j in Ts for s in Ss for t in [0]),
+                           f"AtLeastAFiveDayBreak_{i}")
+            
     
-    # Constraint 6: 2+ Saturday games in the same stadium
-    for r in rounds:
-        for s in Ss:
-            model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for t in [2, 3, 4]) <= 1, f"SaturdayGamesInStadium_{r}_{s}")
+    # Constraint: No three games in a row outside home location
+    for i in Ts:
+        for r in rounds[:-2]:
+            model.addConstr(quicksum(fixture[j, i, stadium_numbers[s], t, r_]+fixture[i,j, stadium_numbers[s], t, r_] for j in Ts for s in home_location_stadiums[i] 
+                                 for t in timeslots for r_ in range(r,r+3)) >= 1, f"ThreeGamesInRowOutside_{i}_{r}")
+       
+    # Constraint: No four away games in a row
+    for i in Ts:
+        for r in rounds[:-3]:
+            model.addConstr(quicksum(fixture[i, j, s, t, r_] for j in Ts for s in Ss for t in timeslots
+                                     for r_ in range(r,r+4)) >= 1, f"FourAwayGamesInRow_{i}_{r}")
     
-    # Constraint 7: 2+ Sunday games in the same stadium
+    
+    # Constraint: No 2+ games in one day in the same stadium
     for r in rounds:
         for s in Ss:
             model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for t in [5, 6]) <= 1, f"SundayGamesInStadium_{r}_{s}")
+            
+            model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for t in [2, 3, 4]) <= 1, f"SaturdayGamesInStadium_{r}_{s}")
+            
+            for t in [0,1]:
+                model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts) <= 1, f"OneGameAtATimeInStadium_{r}_{s}")
     
+    
+    # Constraint: No more than two games in any timeslot, and only one on Thursday and Friday night, incentivise games in each timeslot
+    for r in rounds:
+        
+        model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for s in Ss for t in [5,6]) >= 2, f"AtLeastTwoSundayGames")
+        
+        for t in [0,1]:
+            model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for s in Ss) <= 1, f"OneThursday&FridayNightGame_{r}")
+            
+        for t in [2,3,4,5,6]:
+            model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for s in Ss) <= 2, f"NoMoreThanTwoSimultaneousGames_{r}")
+        
+        for t in timeslots:
+            model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for s in Ss) >= game_on[t,r], f"IncentiviseAtLeastOneGameInEachTimeslot_{r}_{t}")
 
 
     model.setObjective(quicksum(attractiveness(i,j,s,t,r)*fixture[i,j,s,t,r] for i in Ts for j in Ts 
-                             for s in Ss for t in timeslots for r in rounds), GRB.MAXIMIZE)
+                             for s in Ss for t in timeslots for r in rounds) + 
+                             100*quicksum(game_on[t,r] for t in timeslots for r in rounds), GRB.MAXIMIZE)
     
     model.optimize()
     if model.status == GRB.OPTIMAL:
         for r in rounds:
             print('\n \n')
-            print(f'Round {r}:')
+            print(f'Round {r+1}:')
             for t in timeslots:
                 for i in Ts:
                     for j in Ts:
