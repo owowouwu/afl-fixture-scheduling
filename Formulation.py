@@ -150,7 +150,7 @@ def generate_initial_fixture():
         for r in rounds[:-2]:
             model.addConstr(quicksum(fixture[j, i, stadium_numbers[s], t, r_]+fixture[i,j, stadium_numbers[s], t, r_] for j in Ts for s in home_location_stadiums[i] 
                                  for t in timeslots for r_ in range(r,r+3)) >= 1, f"ThreeGamesInRowOutside_{i}_{r}")
-       
+ 
     # Constraint: No four away games in a row
     for i in Ts:
         for r in rounds[:-3]:
