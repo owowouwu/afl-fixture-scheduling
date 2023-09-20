@@ -63,7 +63,7 @@ rivals_num = [[team_numbers[i] for i in rivals[j]] for j in range(len(rivals))]
 
 
 timeslots = [i for i in range(7)]
-timeslot_values = [100,130,55,70,110,50,40] # Change later according to attendances
+timeslot_values = [10,13,5.5,7,11,5,4] # Change later according to attendances
 timeslot_names = ['Thursday Night','Friday Night','Saturday Afternoon','Saturday Evening',
                   'Saturday Night','Sunday Afternoon','Sunday Evening']
 
@@ -103,8 +103,8 @@ def attractiveness(i, j, s, t, r):
     if stadium_locations[s] == home_locations[j]:
         score *= (1+beta)
         
-    score *= stadium_size[s]
-    score *= (team_fans[i]+team_fans[j])
+    score *= np.sqrt(stadium_size[s])
+    score *= np.sqrt(team_fans[i]+0.5*team_fans[j])
     
     score *= timeslot_values[t]
     
