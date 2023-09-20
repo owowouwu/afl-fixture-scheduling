@@ -28,8 +28,10 @@ class Tournament:
          self.S = range(len(stadiums))
          self.C = range(len(teams))
          self.E = self._init_rivals_matrix()
-         self.fixture_matrix = np.array([[[[[0 for i in self.C] for j in self.C] for s in self.S] for t in self.T] for r in self.R], dtype='bool')
-    
+         self.fixture_matrix = np.array([[[[[0 for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C], dtype='bool')
+         self.attractiveness_matrix = np.array([[[[[self.attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
+
+
     def _init_rivals_matrix(self):
         return [
             [1 if team2 in self.teams[team1]['rivals'] else 0 for team2 in self.C] for team1 in self.C
