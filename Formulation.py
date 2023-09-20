@@ -251,7 +251,7 @@ def generate_initial_fixture():
         print("No feasible solution found.")
     
     
-    return fixture_matrix, model.objVal
+    return np.array(fixture_matrix), model.objVal
 
 
 
