@@ -329,9 +329,9 @@ def fixture_attractiveness(fixture,max_value,violated_factor,critical_factor,equ
     for r in rounds:
         for t in timeslots:
             value = 0
-            for i in teams:
-                for j in teams:
-                    for s in stadiums:
+            for i in Ts:
+                for j in Ts:
+                    for s in Ss:
                         value += attractiveness(i, j, s, t, r)*fixture[i][j][s][t][r]
                             
             total_score += min(max_value,value)
