@@ -30,7 +30,7 @@ class Tournament:
          self.E = self._init_rivals_matrix()
          self.fixture_matrix = np.array([[[[[0 for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C], dtype='bool')
          self.attractiveness_matrix = np.array([[[[[self.attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
-
+         self.prelim_attractiveness_matrix = np.array([[[[[self.prelim_attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
 
     def _init_rivals_matrix(self):
         return [
@@ -64,6 +64,43 @@ class Tournament:
     def print_game(self, i, j, s, r, t):
         print(f"{self.timeslots[t]['name']}: {self.cnames[i]} vs. {self.cnames[j]} at {self.snames[s]}")
     
+    def prelim_attractiveness(self, i, j, s, t, r):
+        # attractiveness but also considers some simple violated constraints
+        # adjust as needed
+        alpha = 1.0
+        beta = 1.0
+        gamma = 1.0
+        sigma = 1.0
+        xi = 1.0
+        score = 1
+        if not s in self.teams[i]['home_stadiums']:
+            score *= 0
+
+        if i == j:
+            score *= 0
+        
+    
+        if score == 0: return score
+        
+        if self.E[i][j]:
+            score *= 1+alpha
+        
+        score /= max(abs(self.teams[i]['ranking'] - self.teams[j]['ranking']),1)
+        score /= (self.teams[i]['ranking'] + self.teams[j]['ranking']) / 2
+        
+        if s in self.teams[j]['home_stadiums']:
+            score *= (1+beta)
+
+
+
+        
+        
+        score *=  self.stadiums[s]['size']
+        score *= (self.teams[i]['fans'] + self.teams[j]['fans'])
+        
+        score *= self.timeslots[t]['value']
+        
+        return score
 
 
     def attractiveness(self, i, j, s, t, r):
