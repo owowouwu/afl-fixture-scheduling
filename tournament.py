@@ -30,7 +30,7 @@ class Tournament:
          self.E = self._init_rivals_matrix()
          self.fixture_matrix = np.array([[[[[0 for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C], dtype='bool')
          self.attractiveness_matrix = np.array([[[[[self.attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
-         self.prelim_attractiveness_matrix = np.array([[[[[self.prelim_attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
+         self.weight_matrix = np.array([[[[[self.prelim_attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
 
     def _init_rivals_matrix(self):
         return [
@@ -74,13 +74,13 @@ class Tournament:
         xi = 1.0
         score = 1
         if not s in self.teams[i]['home_stadiums']:
-            score *= 0
+            score = -1
 
         if i == j:
-            score *= 0
+            score = -1
         
     
-        if score == 0: return score
+        if score == -1: return score
         
         if self.E[i][j]:
             score *= 1+alpha
@@ -145,17 +145,21 @@ class Tournament:
         violated, critical = self.feasibility(fixture)
         return total_score - violated_factor*violated - critical_factor*critical
 
-    def feasibility(self, fixture):
+    def feasibility(self, fixture, debug=False):
         violated = 0
         critical = 0
         
         if sum(fixture[i, j, s, t, r] for i in self.C for j in self.C for s in self.S for t in self.T for r in self.R) != 9*22:
             critical += 1
             violated += 1 # Number of total matches
+            if debug:
+                print("Violated critical constraint for total number of matches")
             
         for i in self.C:
             if sum(fixture[i, j, s, t, r] for j in self.C for s in self.S for t in self.T for r in self.R) != 11: # 11 home games
                 violated += 1 # Number of home games
+                if debug:
+                    print(f"Violated constraint for total number of home games for team {self.cnames[i]}")
             
             violated += sum(fixture[i, j, s, t, r] 
                                     for j in self.C 
@@ -171,8 +175,12 @@ class Tournament:
                 else:
                     if vs == 0:
                         violated += 1 # Don't play the other team
+                        if debug:
+                            print(f"Violated constraint - {self.cnames[i]} did not play {self.cnames[j]}")
                     elif vs > 2:
                         violated+= vs-1 # Play the other team too much
+                        if debug:
+                            print(f"Violated constraint - {self.cnames[i]} played {self.cnames[j]} {vs} times")
             
             last = 0
             for r in self.R:
@@ -189,10 +197,14 @@ class Tournament:
                 if sum(fixture[i, j, s, t, r] for i in self.C for j in self.C for t in [2,3,4]) > 1: # 2+ Saturday games in stadium
                     violated += 1
                     critical += 1
+                    if debug:
+                        print(f"Violated critical constraint - 2+ Saturday games at stadium {self.snames[s]} in round {r}")
                     
                 if sum(fixture[i, j, s, t, r] for i in self.C for j in self.C for t in [5,6]) > 1: # 2+ Sunday games in stadium
                     violated += 1
                     critical += 1
+                    if debug:
+                        print(f"Violated critical constraint - 2+ Sunday games at stadium {self.snames[s]} in round {r}")
                 
         return violated, critical
 
