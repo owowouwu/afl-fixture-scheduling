@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from gurobipy import *
+import pickle
 
 # Parameters
 teams = ["Adelaide Crows", "Brisbane Lions", "Carlton Blues", "Collingwood Magpies",
@@ -63,7 +64,7 @@ rivals_num = [[team_numbers[i] for i in rivals[j]] for j in range(len(rivals))]
 
 
 timeslots = [i for i in range(7)]
-timeslot_values = [10,13,5.5,7,11,5,4] # Change later according to attendances
+timeslot_values = [10,13,6,7,11,5,4] # Change later according to attendances
 timeslot_names = ['Thursday Night','Friday Night','Saturday Afternoon','Saturday Evening',
                   'Saturday Night','Sunday Afternoon','Sunday Evening']
 
@@ -92,7 +93,7 @@ def attractiveness(i, j, s, t, r):
     elif r == 1:
         score *= 2
     elif r == 21:
-        score *= 1.5
+        score *= 2
     
     if j in rivals[i]:
         score *= 1+alpha
@@ -221,19 +222,23 @@ def generate_initial_fixture():
         for t in timeslots:
             model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for s in Ss) >= game_on[t,r], f"IncentiviseAtLeastOneGameInEachTimeslot_{r}_{t}")
             
-            
-            
+    
+           
     for i in Ts:
-        model.addConstr(equality[i] >= quicksum(probability_win(i, j, s)*fixture[i,j,s,t,r] + (1-probability_win(j,i,s))*fixture[j,i,s,t,r] for j in Ts for s in Ss for t in timeslots for r in rounds)-11)
-            
-        model.addConstr(equality[i] >= 11-quicksum(probability_win(i, j, s)*fixture[i,j,s,t,r] + (1-probability_win(j,i,s))*fixture[j,i,s,t,r] for j in Ts for s in Ss for t in timeslots for r in rounds))
+        model.addConstr(equality[i] >= quicksum(probability_win(i, j, s)*fixture[i,j,s,t,r] + (1-probability_win(j,i,s))*fixture[j,i,s,t,r] 
+                                                   for j in Ts for s in Ss for t in timeslots for r in rounds)-11)
+                
+        model.addConstr(equality[i] >= 11-quicksum(probability_win(i, j, s)*fixture[i,j,s,t,r] + (1-probability_win(j,i,s))*fixture[j,i,s,t,r] 
+                                                      for j in Ts for s in Ss for t in timeslots for r in rounds))
 
 
     model.setObjective(quicksum(attractiveness(i,j,s,t,r)*fixture[i,j,s,t,r] for i in Ts for j in Ts for s in Ss for t in timeslots for r in rounds) 
-                       + 250*quicksum(game_on[t,r] for t in timeslots for r in rounds) - 2500*quicksum(equality[i] for i in Ts), GRB.MAXIMIZE)
+                       + 250*quicksum(game_on[t,r] for t in timeslots for r in rounds) - 10000*quicksum(equality[i] for i in Ts), GRB.MAXIMIZE)
     
     
     model.optimize()
+    
+    
     if model.status == GRB.OPTIMAL:
         for r in rounds:
             print('\n \n')
@@ -244,8 +249,7 @@ def generate_initial_fixture():
                         for s in Ss:
                             if fixture[i, j, s, t, r].x > 0.5:
                                 print(f'{timeslot_names[t]}: {teams[i]} vs. {teams[j]} at {stadiums[s]}')
-                                fixture_matrix[i][j][s][t][r] = 1
-                                
+                                fixture_matrix[i][j][s][t][r] = 1                         
 
     else:
         print("No feasible solution found.")
@@ -316,7 +320,7 @@ def feasibility(fixture):
             violated += max(0,sum(fixture[i][j][s][t][r] for i in Ts for j in Ts for s in Ss)-2)
         
         for t in [0,1]:
-            violated += abs(0,sum(fixture[i][j][s][t][r] for i in Ts for j in Ts for s in Ss)-1) # One game
+            violated += max(0,sum(fixture[i][j][s][t][r] for i in Ts for j in Ts for s in Ss)-1) # One game
             
             
     return violated, critical
@@ -345,6 +349,10 @@ def fixture_attractiveness(fixture,max_value,violated_factor,critical_factor,equ
 MILP_fixture, MILP_value = generate_initial_fixture()
 print(MILP_value)  
 
-max_value,violated_factor,critical_factor,equality_factor = 10**4,10**5,10**6,10**4
+max_value,violated_factor,critical_factor,equality_factor = 2*(10**4),2*10**4,10**6,10**3
 value = fixture_attractiveness(MILP_fixture,max_value,violated_factor,critical_factor,equality_factor)
 
+print(value)
+path = 'OneDrive\Documents\Melbourne University\Semester 4\Scheduling and Optimisation\Group Project'
+with open(f'{path}\MILP_Fixture.pkl', 'wb') as file:
+    pickle.dump(MILP_fixture, file)
