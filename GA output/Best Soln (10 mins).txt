@@ -1,0 +1,195 @@
+Value 3: 35112407898.5817
+
+Round  0
+Rivalry Match!  St Kilda Saints  VS  Sydney Swans  AT  Gabba  ON  Thursday Night
+Brisbane Lions  VS  North Melbourne Kangaroos  AT  Optus  ON  Friday Night
+Gold Coast Suns  VS  Melbourne Demons  AT  GMHBA  ON  Saturday Afternoon
+Fremantle Dockers  VS  Greater Western Sydney Giants  AT  SCG  ON  Saturday Evening
+Essendon Bombers  VS  Port Adelaide Power  AT  HBS  ON  Saturday Night
+Rivalry Match!  Essendon Bombers  VS  Collingwood Magpies  AT  HBS  ON  Sunday Afternoon
+Fremantle Dockers  VS  Essendon Bombers  AT  SCG  ON  Sunday Evening
+
+Round  1
+Rivalry Match!  Richmond Tigers  VS  Carlton Blues  AT  HBS  ON  Thursday Night
+Greater Western Sydney Giants  VS  North Melbourne Kangaroos  AT  Adelaide Oval  ON  Friday Night
+Hawthorn Hawks  VS  Collingwood Magpies  AT  HBS  ON  Saturday Afternoon
+Rivalry Match!  St Kilda Saints  VS  Sydney Swans  AT  Marvel  ON  Saturday Evening
+Fremantle Dockers  VS  Adelaide Crows  AT  SCG  ON  Saturday Night
+West Coast Eagles  VS  Geelong Cats  AT  SCG  ON  Sunday Afternoon
+Melbourne Demons  VS  Richmond Tigers  AT  Gabba  ON  Sunday Evening
+
+Round  2
+Rivalry Match!  Gold Coast Suns  VS  Brisbane Lions  AT  Optus  ON  Thursday Night
+Collingwood Magpies  VS  Greater Western Sydney Giants  AT  HBS  ON  Friday Night
+St Kilda Saints  VS  Melbourne Demons  AT  Marvel  ON  Saturday Afternoon
+Richmond Tigers  VS  North Melbourne Kangaroos  AT  Marvel  ON  Saturday Evening
+Hawthorn Hawks  VS  Brisbane Lions  AT  HBS  ON  Saturday Night
+Melbourne Demons  VS  Fremantle Dockers  AT  Marvel  ON  Sunday Afternoon
+Essendon Bombers  VS  Brisbane Lions  AT  Gabba  ON  Sunday Evening
+
+Round  3
+Geelong Cats  VS  Essendon Bombers  AT  HBS  ON  Friday Night
+Carlton Blues  VS  Sydney Swans  AT  HBS  ON  Saturday Afternoon
+Melbourne Demons  VS  Hawthorn Hawks  AT  Gabba  ON  Saturday Evening
+Melbourne Demons  VS  Essendon Bombers  AT  Marvel  ON  Saturday Night
+Gold Coast Suns  VS  Greater Western Sydney Giants  AT  GMHBA  ON  Sunday Afternoon
+Brisbane Lions  VS  Richmond Tigers  AT  Optus  ON  Sunday Evening
+
+Round  4
+Rivalry Match!  Richmond Tigers  VS  Carlton Blues  AT  Gabba  ON  Thursday Night
+Richmond Tigers  VS  Geelong Cats  AT  Marvel  ON  Friday Night
+West Coast Eagles  VS  Port Adelaide Power  AT  SCG  ON  Saturday Afternoon
+Richmond Tigers  VS  Fremantle Dockers  AT  Gabba  ON  Saturday Evening
+Rivalry Match!  Brisbane Lions  VS  Collingwood Magpies  AT  GMHBA  ON  Saturday Night
+Hawthorn Hawks  VS  Greater Western Sydney Giants  AT  Gabba  ON  Sunday Afternoon
+Rivalry Match!  Gold Coast Suns  VS  Brisbane Lions  AT  GMHBA  ON  Sunday Evening
+
+Round  5
+Rivalry Match!  North Melbourne Kangaroos  VS  Essendon Bombers  AT  Marvel  ON  Thursday Night
+Carlton Blues  VS  Port Adelaide Power  AT  Marvel  ON  Friday Night
+Hawthorn Hawks  VS  Western Bulldogs  AT  HBS  ON  Saturday Afternoon
+Greater Western Sydney Giants  VS  Hawthorn Hawks  AT  Adelaide Oval  ON  Saturday Evening
+Carlton Blues  VS  Geelong Cats  AT  Marvel  ON  Saturday Night
+Collingwood Magpies  VS  Western Bulldogs  AT  Marvel  ON  Sunday Afternoon
+West Coast Eagles  VS  Western Bulldogs  AT  SCG  ON  Sunday Evening
+
+Round  6
+Rivalry Match!  Western Bulldogs  VS  Greater Western Sydney Giants  AT  Gabba  ON  Thursday Night
+Western Bulldogs  VS  Melbourne Demons  AT  Marvel  ON  Friday Night
+Essendon Bombers  VS  St Kilda Saints  AT  Marvel  ON  Saturday Afternoon
+Port Adelaide Power  VS  North Melbourne Kangaroos  AT  MCG  ON  Saturday Evening
+Carlton Blues  VS  Sydney Swans  AT  Marvel  ON  Saturday Night
+Geelong Cats  VS  North Melbourne Kangaroos  AT  Marvel  ON  Sunday Afternoon
+St Kilda Saints  VS  Richmond Tigers  AT  Gabba  ON  Sunday Evening
+
+Round  7
+Rivalry Match!  Fremantle Dockers  VS  Carlton Blues  AT  SCG  ON  Thursday Night
+Port Adelaide Power  VS  Essendon Bombers  AT  MCG  ON  Friday Night
+Greater Western Sydney Giants  VS  Richmond Tigers  AT  Adelaide Oval  ON  Saturday Afternoon
+Rivalry Match!  Richmond Tigers  VS  Collingwood Magpies  AT  Marvel  ON  Saturday Evening
+Hawthorn Hawks  VS  Adelaide Crows  AT  HBS  ON  Saturday Night
+Essendon Bombers  VS  Sydney Swans  AT  Gabba  ON  Sunday Afternoon
+Hawthorn Hawks  VS  Fremantle Dockers  AT  HBS  ON  Sunday Evening
+
+Round  8
+Rivalry Match!  Sydney Swans  VS  Hawthorn Hawks  AT  Adelaide Oval  ON  Thursday Night
+North Melbourne Kangaroos  VS  Adelaide Crows  AT  Marvel  ON  Friday Night
+Port Adelaide Power  VS  Greater Western Sydney Giants  AT  MCG  ON  Saturday Afternoon
+Collingwood Magpies  VS  Sydney Swans  AT  Marvel  ON  Saturday Evening
+Greater Western Sydney Giants  VS  Fremantle Dockers  AT  Adelaide Oval  ON  Saturday Night
+Sydney Swans  VS  Collingwood Magpies  AT  Adelaide Oval  ON  Sunday Afternoon
+Adelaide Crows  VS  Collingwood Magpies  AT  MCG  ON  Sunday Evening
+
+Round  9
+Rivalry Match!  St Kilda Saints  VS  Sydney Swans  AT  Gabba  ON  Thursday Night
+Greater Western Sydney Giants  VS  West Coast Eagles  AT  Adelaide Oval  ON  Friday Night
+Port Adelaide Power  VS  Carlton Blues  AT  MCG  ON  Saturday Afternoon
+Richmond Tigers  VS  Western Bulldogs  AT  HBS  ON  Saturday Evening
+West Coast Eagles  VS  Geelong Cats  AT  SCG  ON  Saturday Night
+Carlton Blues  VS  Western Bulldogs  AT  Marvel  ON  Sunday Afternoon
+St Kilda Saints  VS  Greater Western Sydney Giants  AT  Gabba  ON  Sunday Evening
+
+Round  10
+Rivalry Match!  Carlton Blues  VS  Essendon Bombers  AT  Marvel  ON  Thursday Night
+Melbourne Demons  VS  West Coast Eagles  AT  Marvel  ON  Friday Night
+Essendon Bombers  VS  Western Bulldogs  AT  Gabba  ON  Saturday Afternoon
+West Coast Eagles  VS  Richmond Tigers  AT  SCG  ON  Saturday Evening
+Melbourne Demons  VS  Gold Coast Suns  AT  Gabba  ON  Saturday Night
+Essendon Bombers  VS  Adelaide Crows  AT  Gabba  ON  Sunday Afternoon
+Fremantle Dockers  VS  Melbourne Demons  AT  SCG  ON  Sunday Evening
+
+Round  11
+Rivalry Match!  Carlton Blues  VS  Fremantle Dockers  AT  Gabba  ON  Thursday Night
+North Melbourne Kangaroos  VS  Carlton Blues  AT  Gabba  ON  Friday Night
+Rivalry Match!  Essendon Bombers  VS  Hawthorn Hawks  AT  HBS  ON  Saturday Afternoon
+West Coast Eagles  VS  Adelaide Crows  AT  SCG  ON  Saturday Evening
+Adelaide Crows  VS  Geelong Cats  AT  MCG  ON  Saturday Night
+Geelong Cats  VS  Melbourne Demons  AT  HBS  ON  Sunday Afternoon
+Melbourne Demons  VS  Sydney Swans  AT  HBS  ON  Sunday Evening
+
+Round  12
+Rivalry Match!  Gold Coast Suns  VS  Brisbane Lions  AT  GMHBA  ON  Thursday Night
+Adelaide Crows  VS  St Kilda Saints  AT  MCG  ON  Friday Night
+Gold Coast Suns  VS  St Kilda Saints  AT  GMHBA  ON  Saturday Afternoon
+Rivalry Match!  Carlton Blues  VS  Essendon Bombers  AT  HBS  ON  Saturday Evening
+Port Adelaide Power  VS  Fremantle Dockers  AT  MCG  ON  Saturday Night
+Sydney Swans  VS  Richmond Tigers  AT  Adelaide Oval  ON  Sunday Afternoon
+
+Round  13
+Rivalry Match!  Port Adelaide Power  VS  Collingwood Magpies  AT  MCG  ON  Thursday Night
+Brisbane Lions  VS  West Coast Eagles  AT  GMHBA  ON  Friday Night
+Carlton Blues  VS  Western Bulldogs  AT  Marvel  ON  Saturday Afternoon
+Adelaide Crows  VS  Gold Coast Suns  AT  MCG  ON  Saturday Evening
+Port Adelaide Power  VS  West Coast Eagles  AT  MCG  ON  Saturday Night
+Fremantle Dockers  VS  Hawthorn Hawks  AT  SCG  ON  Sunday Afternoon
+Rivalry Match!  Collingwood Magpies  VS  Carlton Blues  AT  Gabba  ON  Sunday Evening
+
+Round  14
+Rivalry Match!  Essendon Bombers  VS  Carlton Blues  AT  Marvel  ON  Thursday Night
+Melbourne Demons  VS  Adelaide Crows  AT  HBS  ON  Friday Night
+West Coast Eagles  VS  Hawthorn Hawks  AT  SCG  ON  Saturday Afternoon
+Brisbane Lions  VS  North Melbourne Kangaroos  AT  Optus  ON  Saturday Evening
+West Coast Eagles  VS  Brisbane Lions  AT  SCG  ON  Saturday Night
+Port Adelaide Power  VS  St Kilda Saints  AT  MCG  ON  Sunday Afternoon
+Hawthorn Hawks  VS  Gold Coast Suns  AT  HBS  ON  Sunday Evening
+
+Round  15
+Rivalry Match!  Gold Coast Suns  VS  Brisbane Lions  AT  GMHBA  ON  Thursday Night
+Western Bulldogs  VS  Fremantle Dockers  AT  HBS  ON  Friday Night
+Collingwood Magpies  VS  North Melbourne Kangaroos  AT  Gabba  ON  Saturday Afternoon
+Western Bulldogs  VS  Richmond Tigers  AT  HBS  ON  Saturday Evening
+Geelong Cats  VS  Sydney Swans  AT  HBS  ON  Saturday Night
+Rivalry Match!  Collingwood Magpies  VS  Geelong Cats  AT  Marvel  ON  Sunday Afternoon
+Richmond Tigers  VS  St Kilda Saints  AT  Gabba  ON  Sunday Evening
+
+Round  16
+Rivalry Match!  North Melbourne Kangaroos  VS  Hawthorn Hawks  AT  Marvel  ON  Thursday Night
+Hawthorn Hawks  VS  St Kilda Saints  AT  Gabba  ON  Saturday Afternoon
+Port Adelaide Power  VS  Gold Coast Suns  AT  MCG  ON  Saturday Evening
+Essendon Bombers  VS  Melbourne Demons  AT  Marvel  ON  Saturday Night
+North Melbourne Kangaroos  VS  Western Bulldogs  AT  Marvel  ON  Sunday Afternoon
+Greater Western Sydney Giants  VS  Brisbane Lions  AT  Adelaide Oval  ON  Sunday Evening
+
+Round  17
+Rivalry Match!  Gold Coast Suns  VS  Brisbane Lions  AT  GMHBA  ON  Thursday Night
+Geelong Cats  VS  Melbourne Demons  AT  Marvel  ON  Friday Night
+Brisbane Lions  VS  Richmond Tigers  AT  Optus  ON  Saturday Afternoon
+Geelong Cats  VS  Melbourne Demons  AT  Marvel  ON  Saturday Evening
+Carlton Blues  VS  Gold Coast Suns  AT  Marvel  ON  Saturday Night
+Rivalry Match!  West Coast Eagles  VS  Sydney Swans  AT  SCG  ON  Sunday Afternoon
+West Coast Eagles  VS  North Melbourne Kangaroos  AT  SCG  ON  Sunday Evening
+
+Round  18
+Rivalry Match!  Essendon Bombers  VS  Hawthorn Hawks  AT  Marvel  ON  Thursday Night
+Greater Western Sydney Giants  VS  St Kilda Saints  AT  Adelaide Oval  ON  Friday Night
+Rivalry Match!  Hawthorn Hawks  VS  Geelong Cats  AT  HBS  ON  Saturday Afternoon
+Collingwood Magpies  VS  North Melbourne Kangaroos  AT  Marvel  ON  Saturday Evening
+Sydney Swans  VS  Port Adelaide Power  AT  Adelaide Oval  ON  Saturday Night
+West Coast Eagles  VS  Carlton Blues  AT  SCG  ON  Sunday Afternoon
+Fremantle Dockers  VS  Richmond Tigers  AT  SCG  ON  Sunday Evening
+
+Round  19
+Rivalry Match!  Adelaide Crows  VS  Port Adelaide Power  AT  MCG  ON  Thursday Night
+West Coast Eagles  VS  Carlton Blues  AT  SCG  ON  Friday Night
+Geelong Cats  VS  Gold Coast Suns  AT  Gabba  ON  Saturday Afternoon
+Fremantle Dockers  VS  St Kilda Saints  AT  SCG  ON  Saturday Evening
+Richmond Tigers  VS  North Melbourne Kangaroos  AT  HBS  ON  Saturday Night
+Carlton Blues  VS  Port Adelaide Power  AT  Marvel  ON  Sunday Afternoon
+Western Bulldogs  VS  St Kilda Saints  AT  Marvel  ON  Sunday Evening
+
+Round  20
+Rivalry Match!  West Coast Eagles  VS  Collingwood Magpies  AT  SCG  ON  Thursday Night
+St Kilda Saints  VS  Adelaide Crows  AT  HBS  ON  Friday Night
+Carlton Blues  VS  Gold Coast Suns  AT  Gabba  ON  Saturday Afternoon
+St Kilda Saints  VS  North Melbourne Kangaroos  AT  Marvel  ON  Saturday Evening
+Melbourne Demons  VS  Adelaide Crows  AT  HBS  ON  Saturday Night
+West Coast Eagles  VS  Richmond Tigers  AT  SCG  ON  Sunday Afternoon
+Port Adelaide Power  VS  Fremantle Dockers  AT  MCG  ON  Sunday Evening
+
+Round  21
+Rivalry Match!  Western Bulldogs  VS  Greater Western Sydney Giants  AT  HBS  ON  Thursday Night
+Port Adelaide Power  VS  Brisbane Lions  AT  MCG  ON  Saturday Afternoon
+Geelong Cats  VS  Fremantle Dockers  AT  HBS  ON  Saturday Evening
+Brisbane Lions  VS  Carlton Blues  AT  Optus  ON  Saturday Night
+Rivalry Match!  Hawthorn Hawks  VS  Essendon Bombers  AT  HBS  ON  Sunday Afternoon
+Hawthorn Hawks  VS  Melbourne Demons  AT  Gabba  ON  Sunday Evening
