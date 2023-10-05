@@ -1,0 +1,17 @@
+\section{Methodology}
+In this report, a Genetic Algorithm (GA) is explored to solve the QAP. %The notable features of the particular Greedy GA presented in this report are its implementation of local search heuristics to refine the initial and evolving population, and its incorporation of immigration to maintain diversity in the evolving population.
+
+\bigskip
+Each individual in the initial population is constructed randomly, and each individual is refined by applying simulated annealing for one second. It is enforced that every fixture in the initial population contains at least one rivalry round. Crucial aspects of a GA are selection and reproduction. Elite selection of individuals who survive and reproduce is implemented. One parent is selected from a set of elite individuals, who have an objective value in the top 25\% of the whole population, and the other parent is selected from the whole population. To produce offspring, the simple to implement and computationally inexpensive, round crossover operator is implemented. First, a crossover round is randomly selected. Two children are produced: the first child inherits all rounds up to the cross-over round from the elite parent and the rest of the fixture from the non-elite parent; the second child inherits all rounds up to the cross-over round from the non-elite parent and the rest of the rounds are inherited from the elite parent. Now, we have two parent fixtures and two children fixtures. Of them, the fixture with the worst objective value is removed from the population. After a specified timeframe, the best fixture in the population is taken. 
+
+% It is noted that Simulated Annealing produces significant improvements within the first second. A local search algorithm is iteratively applied to a portion of the population to improve its quality. In addition, to balance exploitation with exploration and maintain diversity, a small population of immigrants is periodically introduced. 
+
+% \bigskip
+% The steps in the Genetic Algorithm are presented in Figure \ref{fig:flowchart}. First, an initial population is constructed by randomly allocating facilities to locations. Simulated annealing is applied to each individual in the initial population. Secondly, for a specified period of time, the population evolves. Evolution consists of the following steps: (1) Two parents are selected with one parent being selected from a pool of elite individuals; (2) The two parents are combined through a crossover operator to produce a child; and (3) The child replaces the least fit parent. Throughout evolution, periodically, a subset of the population is refined through simulated annealing. To counteract the greediness in the algorithm so far and incorporate diversity, in addition to periodic waves of immigration, if the variation in the population is below a specified threshold, immigrants are introduced. Immigrants are constructed using Greedy Randomized Construction (GRASP), and simulated annealing is applied to each immigrant for one second. Variation in the population is determined by the Hamming distance between all pairs of individuals in the population.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{Figures/flowchart.png}
+%     \caption{Flow of the Genetic Algorithm}
+%     \label{fig:flowchart}
+% \end{figure}
