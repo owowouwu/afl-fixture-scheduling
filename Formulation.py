@@ -164,7 +164,7 @@ def generate_initial_fixture():
             model.addConstr(quicksum(fixture[i, j, s, t, r] + fixture[j, i, s, t, r] for j in Ts for s in Ss for t in timeslots) == 1, "MatchesEachRound")
             
     
-    for i in Ts:
+    for i in Ts: # 11 Home Games 
         model.addConstr(quicksum(fixture[i, j, stadium_numbers[s], t, r] for j in Ts for s in home_stadiums[i] 
                                  for t in timeslots for r in rounds) == 11, f"HomeGames_{i}")
     
