@@ -1,0 +1,140 @@
+Round 0: 
+Round 1: 
+Round 2: 
+Round 3: 
+Round 4: 
+Round 5: 
+Round 6: 
+Round 7: 
+Round 8: 
+Round 9: 
+Round 10: 
+limit of home games reached for team Collingwood Magpies
+Round 11: 
+limit of home games reached for team Carlton Blues
+Round 12: 
+limit of home games reached for team Essendon Bombers
+Round 13: 
+limit of home games reached for team Richmond Tigers
+limit of away games reached for team Essendon Bombers
+Round 14: 
+limit of away games reached for team Collingwood Magpies
+limit of home games reached for team Melbourne Demons
+Round 15: 
+limit of away games reached for team Carlton Blues
+limit of away games reached for team St Kilda Saints
+Round 16: 
+limit of home games reached for team Western Bulldogs
+limit of away games reached for team Richmond Tigers
+limit of home games reached for team Hawthorn Hawks
+limit of home games reached for team St Kilda Saints
+limit of away games reached for team Western Bulldogs
+Round 17: 
+limit of away games reached for team Melbourne Demons
+limit of away games reached for team Sydney Swans
+limit of home games reached for team Adelaide Crows
+Round 18: 
+limit of home games reached for team Sydney Swans
+limit of away games reached for team Greater Western Sydney Giants
+limit of home games reached for team Port Adelaide Power
+limit of away games reached for team Hawthorn Hawks
+Round 19: 
+limit of home games reached for team Geelong Cats
+limit of away games reached for team Geelong Cats
+limit of home games reached for team Brisbane Lions
+limit of away games reached for team Adelaide Crows
+limit of away games reached for team Port Adelaide Power
+limit of away games reached for team Carlton Blues
+Round 20: 
+limit of away games reached for team Fremantle Dockers
+limit of home games reached for team Greater Western Sydney Giants
+limit of away games reached for team Brisbane Lions
+limit of home games reached for team Essendon Bombers
+limit of home games reached for team Richmond Tigers
+limit of away games reached for team Collingwood Magpies
+limit of away games reached for team Essendon Bombers
+limit of home games reached for team Geelong Cats
+Round 21: 
+limit of home games reached for team Collingwood Magpies
+limit of home games reached for team Fremantle Dockers
+limit of away games reached for team Sydney Swans
+limit of home games reached for team North Melbourne Kangaroos
+limit of away games reached for team Western Bulldogs
+limit of away games reached for team Richmond Tigers
+limit of home games reached for team Melbourne Demons
+limit of home games reached for team St Kilda Saints
+limit of home games reached for team Adelaide Crows
+limit of home games reached for team Carlton Blues
+limit of home games reached for team Western Bulldogs
+[(12, 3, 5, 4, 0), (3, 12, 0, 0, 1)]
+[(8, 7, 4, 0, 20)]
+[(5, 16, 6, 8, 9), (16, 5, 6, 3, 7)]
+[(6, 12, 2, 2, 17), (12, 6, 5, 1, 18)]
+Round 0: 
+Round 1: 
+Round 2: 
+Round 3: 
+Round 4: 
+Round 5: 
+Round 6: 
+Round 7: 
+Round 8: 
+Round 9: 
+Round 10: 
+Round 11: 
+Round 12: 
+limit of home games reached for team Collingwood Magpies
+limit of home games reached for team Carlton Blues
+Round 13: 
+limit of home games reached for team Essendon Bombers
+limit of home games reached for team Richmond Tigers
+Round 14: 
+limit of away games reached for team Carlton Blues
+limit of away games reached for team Essendon Bombers
+limit of away games reached for team Collingwood Magpies
+limit of away games reached for team Western Bulldogs
+Round 15: 
+limit of home games reached for team Melbourne Demons
+limit of home games reached for team Western Bulldogs
+Round 16: 
+limit of away games reached for team Richmond Tigers
+limit of home games reached for team Hawthorn Hawks
+limit of home games reached for team St Kilda Saints
+limit of away games reached for team Melbourne Demons
+Round 17: 
+limit of away games reached for team Sydney Swans
+limit of away games reached for team Greater Western Sydney Giants
+limit of home games reached for team Port Adelaide Power
+Round 18: 
+limit of away games reached for team St Kilda Saints
+limit of home games reached for team Sydney Swans
+limit of home games reached for team Adelaide Crows
+limit of home games reached for team Geelong Cats
+Round 19: 
+limit of away games reached for team Geelong Cats
+limit of home games reached for team Fremantle Dockers
+limit of away games reached for team Adelaide Crows
+limit of away games reached for team Port Adelaide Power
+limit of home games reached for team Brisbane Lions
+Round 20: 
+limit of away games reached for team Hawthorn Hawks
+limit of home games reached for team North Melbourne Kangaroos
+limit of away games reached for team Fremantle Dockers
+limit of away games reached for team Brisbane Lions
+limit of home games reached for team Essendon Bombers
+limit of home games reached for team Collingwood Magpies
+limit of away games reached for team Sydney Swans
+Round 21: 
+limit of home games reached for team Greater Western Sydney Giants
+limit of home games reached for team Richmond Tigers
+limit of home games reached for team Carlton Blues
+limit of away games reached for team Essendon Bombers
+limit of home games reached for team Western Bulldogs
+limit of away games reached for team Collingwood Magpies
+limit of home games reached for team St Kilda Saints
+limit of home games reached for team Adelaide Crows
+limit of home games reached for team Port Adelaide Power
+limit of away games reached for team Gold Coast Suns
+[(1, 10, 7, 8, 4), (10, 1, 0, 1, 2)]
+[(10, 0, 0, 0, 15), (0, 10, 5, 1, 16)]
+[]

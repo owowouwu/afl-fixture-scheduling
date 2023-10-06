@@ -74,13 +74,13 @@ class Tournament:
         xi = 1.0
         score = 1
         if not s in self.teams[i]['home_stadiums']:
-            score = -1
+            score = -np.inf
 
         if i == j:
-            score = -1
+            score = -np.inf
         
     
-        if score == -1: return score
+        if score < 0: return score
         
         if self.E[i][j]:
             score *= 1+alpha
