@@ -1,7 +1,7 @@
 import numpy as np
 import json
-from tournament import Tournament
-from grasp import GraspHeuristic
+from modules.tournament import Tournament
+from modules.greedy_round_scheduler import GreedyByRoundScheduler
 
 np.random.seed(1234)
 
@@ -29,11 +29,8 @@ timeslot_names = ['Thursday Night','Friday Night','Saturday Morning','Saturday A
 timeslots = [{'value': v, 'name': n} for (n,v) in zip(timeslot_names, timeslot_values)]
 tourn = Tournament(teams = teams, locations = locations, stadiums=stadiums, timeslots = timeslots, rounds = 22)
 
-gr = GraspHeuristic(tourn)
+gr = GreedyByRoundScheduler(tourn)
 arr = tourn.weight_matrix
-fixture, obj = gr.grasp_heuristic(iterations = 10, local_it = 10, rcl_length = 10,
-                                    attractiveness_matrix=arr, rounds = 22, timeslots = 9)
-tourn.fixture_matrix = fixture
-tourn.print_fixture()
+result, fixture = gr.construct_greedy_schedule_random(arr, rounds = 22, timeslots = 9, rcl_length=10, print_games=True)
 print("objective: ", tourn.fixture_attractiveness(fixture=fixture))
 print("constraints violated: ", tourn.feasibility(fixture, debug=True))
