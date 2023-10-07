@@ -2,7 +2,6 @@ import random
 import numpy as np
 from tqdm import tqdm
 from collections import deque
-from tournament import Tournament
 from .local_search import iterated_local_search, random_neighbour
 
 class GreedyScheduler:
@@ -34,8 +33,8 @@ class GreedyScheduler:
                           timeslot_usage, stadium_usage, weight, update_usages = False
                           ):
         # adapt the weighting for greedy algorithm based on games played so far
-        # can't play in exact same config
         weight_matrix[team1, team2,:,:,:] = -np.inf
+        weight_matrix[team2, team1, :, :, :] = -np.inf
 
         # can't play in same round again
         weight_matrix[team1, :, :, :, round] = -np.inf
@@ -45,12 +44,12 @@ class GreedyScheduler:
 
         # restrictions on timeslots for each round
         if timeslot == 0 or timeslot == 1: # thurs or friday night can only have one game
-            weight_matrix[:, :, :, timeslot, round] = -np.inf
+            weight_matrix[:, :, :, timeslot, round] *= weight
             timeslot_usage[round][timeslot] += 1
         else:
             timeslot_usage[round][timeslot] += 1
             if timeslot_usage[round][timeslot] == 2: # all others can have two games
-                weight_matrix[:, :, :, timeslot, round] = -np.inf
+                weight_matrix[:, :, :, timeslot, round] *= weight
 
         # restrictions on the times a stadium can be used
         if timeslot in [2,3,4]:
@@ -75,6 +74,7 @@ class GreedyScheduler:
         # adapt the weighting for greedy algorithm based on games played so far
         # can't play in exact same config
         weight_matrix[team1, team2,:,:,:] = -np.inf
+        weight_matrix[team2, team1, :, :, :] = -np.inf
 
         # can't play in same round again
         weight_matrix[team1, :, :, :, round] = -np.inf
@@ -133,18 +133,19 @@ class GreedyScheduler:
 
         return game_list
 
-    def generate_whole_fixture(self, n_candidates = 10, seed = None, print_fixture = False, resolve_conflict = None):
+    def generate_whole_fixture(self, rcl_length=10, seed=None, print_fixture=False, resolve_conflict=None):
         """
         generates a greedy fixture by allocating every match to a timeslot stadium and round, does not work well
-        :param n_candidates:
+        :param rcl_length:
         :param seed:
         :param print_fixture:
         :return:
         """
         if seed is not None:
             random.seed(seed)
+        initial_rounds = self.n_teams - 1
         initial_fixture_matrix = np.zeros((self.n_teams, self.n_teams, self.n_stadiums, self.n_timeslots, self.n_teams))
-        initial_rounds = self.n_teams
+
         # shuffle games to select teams randomly
         game_list = self.generate_game_list(shuffle=True)
         print("Game list", game_list)
@@ -156,6 +157,7 @@ class GreedyScheduler:
 
         weight_matrix = self.tourn.weight_matrix.copy()
         weight_matrix_init = weight_matrix[:,:,:,:, 0:initial_rounds]
+        soft_weight_matrix = weight_matrix_init.copy()
         # keep track of usage
         timeslot_usage = np.zeros((initial_rounds, self.n_timeslots))
         stadium_usage = np.zeros((initial_rounds, 2, self.n_stadiums))
@@ -166,30 +168,47 @@ class GreedyScheduler:
         while games_to_play > 0:
             # choose team1, team2 (randomly since shuffled)
             match = games_left.pop()
+
+            # shuffle home and away
+
             team1, team2 = match
             games_to_play -= 1
 
             # find stadium, round and timeslot by building a list of the best K
 
-            candidates, scores = self.find_rts(team1, team2, k = n_candidates, weight_matrix=weight_matrix_init)
+            candidates, scores = self.find_rts(team1, team2, k = rcl_length, weight_matrix=weight_matrix_init)
             # randomly sample among the best K
             try:
                 assignment = random.choice(candidates)
                 stadium, timeslot, r = assignment
             except:
-                print(f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered")
-                games_not_found += 1
-                continue
+                print(
+                    f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered, switching home and away")
+                team1, team2 = team2, team1
+                candidates, scores = self.find_rts(team1, team2, rcl_length, weight_matrix_init)
+                try:
+                    assignment = random.choice(candidates)
+                    stadium, timeslot = assignment
+                except:
+                    print(f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered, using soft weighting")
+                    candidates, scores = self.find_rts(team1, team2, rcl_length, soft_weight_matrix)
+
             initial_fixture_matrix[team1, team2, stadium, timeslot, r] = 1
             weight_matrix_init,timeslot_usage, stadium_usage = self.adapt_greedy(team1, team2, stadium, timeslot, r,
                                                                             weight_matrix=weight_matrix_init,
                                                                             timeslot_usage=timeslot_usage,
                                                                             stadium_usage=stadium_usage
                                                                             )
+            soft_weight_matrix, timeslot_usage, stadium_usage = self.adapt_greedy_soft(team1, team2, stadium, timeslot,r,
+                                                                                       weight_matrix=soft_weight_matrix,
+                                                                                       timeslot_usage=timeslot_usage,
+                                                                                       stadium_usage=stadium_usage,
+                                                                                       weight=0.01,
+                                                                                       update_usages=False
+                                                                                       )
+
             if print_fixture:
                 self.tourn.print_round_game(team1, team2, stadium, timeslot, r)
-
-        print(f"Couldn't find {games_not_found} games")
 
         # next stage
         extra_rounds = self.n_rounds - initial_rounds
@@ -202,9 +221,8 @@ class GreedyScheduler:
         extra_fixture_matrix = np.zeros((self.n_teams, self.n_teams, self.n_stadiums, self.n_timeslots, extra_rounds))
 
         weight_matrix = self.tourn.weight_matrix.copy()
-
         weight_matrix_extra = weight_matrix[:, :, :, :, initial_rounds:]
-        print(weight_matrix_extra.shape)
+        soft_weight_matrix = weight_matrix_extra.copy()
         # keep track of usage
         timeslot_usage_e = np.zeros((extra_rounds, self.n_timeslots))
         stadium_usage_e = np.zeros((extra_rounds, 2, self.n_stadiums))
@@ -217,13 +235,21 @@ class GreedyScheduler:
             match = games_left.pop()
             team1, team2 = match
             games_to_play -= 1
-            candidates, scores = self.find_rts(team1, team2, k=n_candidates, weight_matrix=weight_matrix_extra)
+            candidates, scores = self.find_rts(team1, team2, k=rcl_length, weight_matrix=weight_matrix_extra)
             try:
                 assignment = random.choice(candidates)
                 stadium, timeslot, r = assignment
             except:
-                print(f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered")
-                continue
+                print(
+                    f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered, switching home and away")
+                team1, team2 = team2, team1
+                candidates, scores = self.find_rts(team1, team2, rcl_length, weight_matrix_init)
+                try:
+                    assignment = random.choice(candidates)
+                    stadium, timeslot = assignment
+                except:
+                    print(f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered, using soft weighting")
+                    candidates, scores = self.find_rts(team1, team2, rcl_length, soft_weight_matrix)
 
             extra_fixture_matrix[team1, team2, stadium, timeslot, r] = 1
             weight_matrix_extra,timeslot_usage_e, stadium_usage_e = self.adapt_greedy(team1, team2, stadium, timeslot, r,
@@ -231,6 +257,15 @@ class GreedyScheduler:
                                                                             timeslot_usage=timeslot_usage_e,
                                                                             stadium_usage=stadium_usage_e
                                                                             )
+            soft_weight_matrix, timeslot_usage, stadium_usage = self.adapt_greedy_soft(team1, team2, stadium, timeslot,
+                                                                                       r,
+                                                                                       weight_matrix=soft_weight_matrix,
+                                                                                       timeslot_usage=timeslot_usage,
+                                                                                       stadium_usage=stadium_usage,
+                                                                                       weight=0.01,
+                                                                                       update_usages=False
+                                                                                       )
+
             if print_fixture:
                 self.tourn.print_round_game(team1, team2, stadium, timeslot, r)
 

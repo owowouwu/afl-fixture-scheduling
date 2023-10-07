@@ -1,7 +1,6 @@
 import numpy as np
 from tqdm import tqdm
-from tournament import Tournament
-from local_search import iterated_local_search, random_neighbour
+from .local_search import iterated_local_search, random_neighbour
 
 class GreedyByRoundScheduler:
 
@@ -48,10 +47,10 @@ class GreedyByRoundScheduler:
         team1, team2, stadium, timeslot = game_chosen
 
         # teams cannot play games in the same round
-        tmp_matrix[team1, :, :, :] *= 0.5
-        tmp_matrix[:,team1,:,:] *= 0.5
-        tmp_matrix[:, team2, :, :] *= 0.5
-        tmp_matrix[team2,:,:,:] *= 0.5
+        tmp_matrix[team1, :, :, :] = -np.inf
+        tmp_matrix[:,team1,:,:] = -np.inf
+        tmp_matrix[:, team2, :, :] = -np.inf
+        tmp_matrix[team2,:,:,:] = -np.inf
 
         # check if a stadium has already been used two times in a day
         if timeslot in [2,3,4]:
@@ -75,6 +74,7 @@ class GreedyByRoundScheduler:
                 # tmp_matrix[:, team2, :, :] *= 0.4
         
             attractiveness_matrix[team1,team2,:,:,:] = -np.inf
+            attractiveness_matrix[team2,team1,:,:,:] = -np.inf
         
         if fixture_matrix is not None:
             return tmp_matrix, attractiveness_matrix
@@ -100,7 +100,7 @@ class GreedyByRoundScheduler:
                 continue
             
             team1, team2, stadium, timeslot = new_game
-            if print_games: self.tourn.print_game(team1, team2, stadium, round, timeslot)
+            if print_games: self.tourn.print_game(team1, team2, stadium, timeslot)
             games[timeslot] = [team1,team2,stadium]
             # if we are running this in a loop to construct the whole schedule we want to keep track of the games played
             # between teams across all rounds
@@ -170,7 +170,7 @@ class GreedyByRoundScheduler:
                 if games_per_timeslot[timeslot] == 2:
                     tmp_matrix[:, :, :, timeslot] = -np.inf
 
-            if print_games: self.tourn.print_game(team1, team2, stadium, round, timeslot)
+            if print_games: self.tourn.print_game(team1, team2, stadium, timeslot)
             if fixture_matrix is not None: 
                 fixture_matrix[team1, team2, stadium, timeslot, round] = 1
                 if track_games: 
@@ -194,19 +194,21 @@ class GreedyByRoundScheduler:
                                          rounds, n_games, timeslots, rcl_length = 10, print_games = False):
         tmp_matrix = attractiveness_matrix.copy()
         fixture = np.zeros(shape = attractiveness_matrix.shape)
-        schedule = [None for _ in range(rounds)]
+
         for round in range(rounds):
             if print_games: print(f"Round {round}: ")
-            games, tmp_matrix, fixture = self.construct_greedy_round_random(tmp_matrix, round,
+            tmp_matrix, fixture = self.construct_greedy_round_random(tmp_matrix, round,
                                                                             n_games=n_games,
                                                                             timeslots=timeslots,
                                                                             rcl_length=rcl_length,
                                                                             track_games=True,
                                                                             fixture_matrix=fixture,
                                                                             print_games = print_games)
-            schedule[round] = games
+
+            if round == 17:
+                tmp_matrix = attractiveness_matrix.copy()
         
-        return schedule, fixture
+        return fixture
 
     def grasp_heuristic(self, iterations, local_it, rcl_length, 
                         attractiveness_matrix, rounds, timeslots):
