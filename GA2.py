@@ -455,7 +455,11 @@ def evolutionPlus():
     return best_soln
 
 best_soln = evolutionPlus()
-print('Score: ', best_soln[1])
+print(best_soln)
+
+violated, critical = feasibility_print(best_soln[0])
+print("Number of Violated Critical Constraints: ",critical)
+print("Number of Violated Constraints: ",violated)
 
 import sys
 
@@ -477,7 +481,4 @@ with open("GA_output_interpreted.txt", "w") as file:
                                 print("Rivalry Match! ", teams[i], " VS ", teams[j], ' AT ', stadiums[s], ' ON ', timeslot_names[t])
                             else: 
                                 print(teams[i], " VS ", teams[j], ' AT ', stadiums[s], ' ON ', timeslot_names[t])
-                                
-violated, critical = feasibility_print(best_soln[0])
-print("Number of Violated Critical Constraints: ",critical)
-print("Number of Violated Constraints: ",violated)
+                            
