@@ -1,0 +1,49 @@
+Round 0: 
+Friday Night: Collingwood Magpies vs. Melbourne Demons at MCG
+Saturday Night: St Kilda Saints vs. Carlton Blues at Marvel
+Saturday Night: Port Adelaide Power vs. Brisbane Lions at Adelaide Oval
+Saturday Afternoon: Richmond Tigers vs. Essendon Bombers at MCG
+Thursday Night: Hawthorn Hawks vs. North Melbourne Kangaroos at MCG
+Saturday Evening: Sydney Swans vs. Western Bulldogs at SCG
+Saturday Afternoon: Fremantle Dockers vs. Gold Coast Suns at Optus
+Sunday Afternoon: Adelaide Crows vs. Geelong Cats at Adelaide Oval
+Sunday Afternoon: Greater Western Sydney Giants vs. West Coast Eagles at Giants
+Round 1: 
+Saturday Evening: Collingwood Magpies vs. Brisbane Lions at MCG
+Friday Night: Melbourne Demons vs. Carlton Blues at MCG
+Saturday Night: Essendon Bombers vs. Western Bulldogs at Marvel
+Thursday Night: St Kilda Saints vs. Sydney Swans at Marvel
+Sunday Evening: Richmond Tigers vs. Fremantle Dockers at MCG
+Saturday Night: Adelaide Crows vs. Port Adelaide Power at Adelaide Oval
+Sunday Afternoon: West Coast Eagles vs. North Melbourne Kangaroos at Optus
+Saturday Afternoon: Geelong Cats vs. Hawthorn Hawks at GMHBA
+Sunday Afternoon: Gold Coast Suns vs. Greater Western Sydney Giants at HBS
+Round 2: 
+Thursday Night: Carlton Blues vs. Collingwood Magpies at MCG
+Friday Night: Port Adelaide Power vs. Melbourne Demons at Adelaide Oval
+Saturday Night: Richmond Tigers vs. Geelong Cats at MCG
+Saturday Night: Western Bulldogs vs. Adelaide Crows at Marvel
+Saturday Afternoon: Sydney Swans vs. Greater Western Sydney Giants at SCG
+Sunday Evening: Hawthorn Hawks vs. Gold Coast Suns at MCG
+Saturday Afternoon: Fremantle Dockers vs. West Coast Eagles at Optus
+Sunday Afternoon: Brisbane Lions vs. St Kilda Saints at Gabba
+Sunday Afternoon: Essendon Bombers vs. North Melbourne Kangaroos at Marvel
+Round 3: 
+Friday Night: Collingwood Magpies vs. Port Adelaide Power at MCG
+Saturday Night: Melbourne Demons vs. Brisbane Lions at MCG
+Thursday Night: Richmond Tigers vs. Carlton Blues at MCG
+Saturday Night: Adelaide Crows vs. Essendon Bombers at Adelaide Oval
+Sunday Afternoon: Western Bulldogs vs. Greater Western Sydney Giants at Marvel
+Saturday Afternoon: Fremantle Dockers vs. Hawthorn Hawks at Optus
+Saturday Afternoon: Sydney Swans vs. Geelong Cats at SCG
+Sunday Evening: West Coast Eagles vs. Gold Coast Suns at Optus
+Saturday Evening: North Melbourne Kangaroos vs. St Kilda Saints at Marvel
+Round 4: 
+Friday Night: Essendon Bombers vs. Geelong Cats at MCG
+Saturday Night: Port Adelaide Power vs. Carlton Blues at Adelaide Oval
+Saturday Night: St Kilda Saints vs. Collingwood Magpies at Marvel
+Saturday Afternoon: Hawthorn Hawks vs. Richmond Tigers at MCG
+Thursday Night: Sydney Swans vs. Adelaide Crows at SCG
+Sunday Evening: Western Bulldogs vs. Melbourne Demons at Marvel
+Saturday Evening: Greater Western Sydney Giants vs. Brisbane Lions at Giants
+Saturday Evening: Gold Coast Suns vs. North Melbourne Kangaroos at HBS

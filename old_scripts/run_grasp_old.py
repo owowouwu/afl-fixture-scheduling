@@ -1,7 +1,7 @@
 import numpy as np
 import json
 from tournament import Tournament
-from grasp import GraspHeuristic
+from modules.greedy_round_scheduler import GraspHeuristic
 
 np.random.seed(1234)
 
@@ -24,8 +24,8 @@ for loc in locations:
     locations[loc]['stadiums'] = snames
 
 timeslot_values = [100,130,40,50,80,110,50,40,90] # Change later according to attendances
-timeslot_names = ['Thursday Night','Friday Night','Saturday Morning','Saturday Afternoon','Saturday Evening',
-                  'Saturday Night','Sunday Afternoon','Sunday Evening', 'Sunday Night']
+timeslot_names = ['Thursday Night','Friday Night','Saturday Afternoon','Saturday Evening',
+                  'Saturday Night','Sunday Afternoon','Sunday Evening']
 timeslots = [{'value': v, 'name': n} for (n,v) in zip(timeslot_names, timeslot_values)]
 tourn = Tournament(teams = teams, locations = locations, stadiums=stadiums, timeslots = timeslots, rounds = 22)
 

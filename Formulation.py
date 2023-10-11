@@ -345,14 +345,18 @@ def fixture_attractiveness(fixture,max_value,violated_factor,critical_factor,equ
     
     return total_score - violated_factor*violated - critical_factor*critical - equality
 
+def main():
   
-MILP_fixture, MILP_value = generate_initial_fixture()
-print(MILP_value)  
+    MILP_fixture, MILP_value = generate_initial_fixture()
+    print(MILP_value)  
 
-max_value,violated_factor,critical_factor,equality_factor = 2*(10**4),2*10**4,10**6,10**3
-value = fixture_attractiveness(MILP_fixture,max_value,violated_factor,critical_factor,equality_factor)
+    max_value,violated_factor,critical_factor,equality_factor = 2*(10**4),2*10**4,10**6,10**3
+    value = fixture_attractiveness(MILP_fixture,max_value,violated_factor,critical_factor,equality_factor)
 
-print(value)
-path = 'OneDrive\Documents\Melbourne University\Semester 4\Scheduling and Optimisation\Group Project'
-with open(f'{path}\MILP_Fixture.pkl', 'wb') as file:
-    pickle.dump(MILP_fixture, file)
+    print(value)
+    path = 'OneDrive\Documents\Melbourne University\Semester 4\Scheduling and Optimisation\Group Project'
+    with open(f'{path}\MILP_Fixture.pkl', 'wb') as file:
+        pickle.dump(MILP_fixture, file)
+
+if __name__ == '__main__':
+    main()
