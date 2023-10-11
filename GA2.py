@@ -327,23 +327,27 @@ def objective_value(fixture):
 
     return objective_value
 
-def genesis():
+def genesis(initial_sol_type):
     print('Genesis')
 
-    # MIP SOLUTION
-    with open('solutions/MILP_Fixture_1000.pkl', 'rb') as pkl_file:
-        MIP_soln1 = pkl.load(pkl_file)
-    with open('solutions/MILP_Fixture_10000.pkl', 'rb') as pkl_file:
-        MIP_soln2 = pkl.load(pkl_file)
-    with open('solutions/MILP_Fixture_100000.pkl', 'rb') as pkl_file:
-        MIP_soln3 = pkl.load(pkl_file)
-    with open('solutions/MILP_Fixture_1000000.pkl', 'rb') as pkl_file:
-        MIP_soln4 = pkl.load(pkl_file)
+    if initial_sol_type == 'MILP':
+        # MIP SOLUTION
+        with open('solutions/MILP_Fixture_1000.pkl', 'rb') as pkl_file:
+            MIP_soln1 = pkl.load(pkl_file)
+        with open('solutions/MILP_Fixture_10000.pkl', 'rb') as pkl_file:
+            MIP_soln2 = pkl.load(pkl_file)
+        with open('solutions/MILP_Fixture_100000.pkl', 'rb') as pkl_file:
+            MIP_soln3 = pkl.load(pkl_file)
+        with open('solutions/MILP_Fixture_1000000.pkl', 'rb') as pkl_file:
+            MIP_soln4 = pkl.load(pkl_file)
+        
+        solns = [MIP_soln1, MIP_soln2, MIP_soln3, MIP_soln4]
 
-    MIP_solns = [MIP_soln1, MIP_soln2, MIP_soln3, MIP_soln4]
+    elif initial_sol_type == 'greedy':
+        solns = [np.load(f'ga_input/greedy{i}.npy') for i in range(1,5)]
     
     pop = []
-    for soln in MIP_solns:
+    for soln in solns:
         pop.append([soln, objective_value(soln)])
     
     return pop
@@ -395,7 +399,7 @@ def birth(parent1, parent2):
 
     return [child1, objective_value(child1)], [child2, objective_value(child2)]
 
-def evolutionPlus():
+def evolutionPlus(init_pop):
 
     start_time = time.time()  # Record the start time
 
@@ -404,7 +408,7 @@ def evolutionPlus():
     num_gen = 0
     duration = 60 * 10
 
-    pop = genesis()  # Use the provided pop_size when calling genesis
+    pop = genesis(init_pop)  # Use the provided pop_size when calling genesis
 
     best_soln = max(pop, key=lambda x: x[1])
     while time.time() - start_time < duration:
@@ -454,7 +458,8 @@ def evolutionPlus():
 
     return best_soln
 
-best_soln = evolutionPlus()
+init_pop = 'greedy'
+best_soln = evolutionPlus(init_pop)
 print(best_soln)
 
 violated, critical = feasibility_print(best_soln[0])
@@ -463,11 +468,11 @@ print("Number of Violated Constraints: ",violated)
 
 import sys
 
-with open("GA_output_raw.txt", "w") as file:
+with open("output/GA_greedy_output_raw.txt", "w") as file:
     sys.stdout = file
     print(best_soln)  # This will be written to output.txt
 
-with open("GA_output_interpreted.txt", "w") as file:
+with open("output/GA_greedy_output_interpreted.txt", "w") as file:
     sys.stdout = file 
     best_fixture = best_soln[0]
     for r in rounds: 
