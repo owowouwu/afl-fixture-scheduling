@@ -1,9 +1,10 @@
 import numpy as np
 from datetime import datetime
 import pandas as  pd
-import sys
+import argparse
+import sys 
+import os
 
-sys.path.append(r'C:\Users\olsha\OneDrive\Documents\Melbourne University\Semester 4\Scheduling and Optimisation\Group Project')
 from Formulation import probability_win, attractiveness
 
 
@@ -129,11 +130,28 @@ def csv_to_fixture(data):
         
     return fixture_matrix
 
-max_value,violated_factor,critical_factor,equality_factor = 2.5*(10**4),2*10**4,10**6,10**3
 
-data = pd.read_csv(r'C:\Users\olsha\OneDrive\Documents\Melbourne University\Semester 4\Scheduling and Optimisation\Group Project\AFL_Fixture_2023.csv').values.tolist()
 
-fixture = csv_to_fixture(data)
-value = fixture_attractiveness(fixture,equality_factor,max_value)
-        
-print(value)
+def main(data_file):
+    # Your code here
+    max_value,violated_factor,critical_factor,equality_factor = 2.5*(10**4),2*10**4,10**6,10**3
+    print(f"Data file path: {data_file}")
+    data = pd.read_csv(data_file)
+    fixture = csv_to_fixture(data)
+    value = fixture_attractiveness(fixture, equality_factor, max_value)
+    print(f"Value of AFL Fixture for {data_file}: {value}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--data_file",
+        type=str,
+        required=True,
+        help="Path to the data file",
+    )
+
+    args = parser.parse_args()
+    main(args.data_file)
+
+
