@@ -222,7 +222,7 @@ def generate_initial_fixture():
             model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for s in Ss) >= game_on[t,r], f"IncentiviseAtLeastOneGameInEachTimeslot_{r}_{t}")
             
     
-           
+    # WHAT DO THESE MEAN    
     for i in Ts:
         model.addConstr(equality[i] >= quicksum(probability_win(i, j, s)*fixture[i,j,s,t,r] + (1-probability_win(j,i,s))*fixture[j,i,s,t,r] 
                                                    for j in Ts for s in Ss for t in timeslots for r in rounds)-11)
