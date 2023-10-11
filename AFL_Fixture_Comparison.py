@@ -52,7 +52,7 @@ def fixture_equality(fixture):
                         games += fixture[i][j][s][t][r] + fixture[j][i][s][t][r]
                         
             
-            inequality += games*(wins-games/2)**2
+            inequality += games*(wins-games/2)**2 / 18
             
     return inequality
 
