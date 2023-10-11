@@ -12,22 +12,32 @@ class Tournament:
 
          self.cnames = list(teams.keys())
          self.snames = list(stadiums.keys())
-         # convert home stadiums into integers
-         for t in self.teams:
-            t['home_stadiums'] = set([self.snames.index(s) for s in t['home_stadiums']])
-            t['rivals'] = set([self.cnames.index(c) for c in t['rivals']])
-        
          
-
-         for l in self.locations:
-            self.locations[l]['stadiums'] = set([self.snames.index(s) for s in self.locations[l]['stadiums']])
-
-        # rounds (R), timeslots (T), stadiums (S), competitors/teams (C), and rivals/enemies (E)
+         # rounds (R), timeslots (T), stadiums (S), competitors/teams (C), and rivals/enemies (E)
          self.R = range(rounds)
          self.T = range(len(timeslots))
          self.S = range(len(stadiums))
          self.C = range(len(teams))
          self.E = self._init_rivals_matrix()
+         
+         # convert home stadiums into integers
+
+         for t in self.teams:
+            t['home_stadiums'] = set([self.snames.index(s) for s in t['home_stadiums']])
+            t['rivals'] = set([self.cnames.index(c) for c in t['rivals']])
+        
+         for t in self.teams:
+            t['home_location_stadiums'] = []
+        
+         for i in self.C:
+            for s in self.S:
+                 if self.stadiums[s]['location'] == self.teams[i]['home_location']:
+                    self.teams[i]['home_location_stadiums'].append(s)
+
+         for l in self.locations:
+            self.locations[l]['stadiums'] = set([self.snames.index(s) for s in self.locations[l]['stadiums']])
+
+        
          self.fixture_matrix = np.array([[[[[0 for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C], dtype='bool')
          self.attractiveness_matrix = np.array([[[[[self.attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
          self.weight_matrix = np.array([[[[[self.prelim_attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
@@ -102,6 +112,33 @@ class Tournament:
         return score
 
 
+    def probability_win(self, i, j, s):
+        probability = self.teams[i]['wins']/(self.teams[i]['wins']+self.teams[j]['wins'])
+        if s not in self.teams[j]['home_stadiums']:
+            probability += (1-probability)/2.5
+        elif s not in self.teams[j]['home_location_stadiums']:
+            probability += (1-probability)/4
+        else:
+            probability += (1-probability)/10
+            
+        return probability
+
+    def expected_win_variance(self, fixture):
+        results = []
+        expected_wins = [0]*18
+        for r in self.R:
+            for i in self.C:
+                for j in self.C:
+                    for s in self.S:
+                        for t in self.T:
+                            expected_wins[i] += self.probability_win(i, j, s)*fixture[i][j][s][t][r]
+                            expected_wins[i] += (1-self.probability_win(j, i, s))*fixture[j][i][s][t][r]
+            
+            results.append(np.var(expected_wins))
+        
+       
+        return sum((i+1)*results[i] for i in range(len(results)))
+
     def attractiveness(self, i, j, s, t, r):
         # adjust as needed
         alpha = 1.0
@@ -127,7 +164,7 @@ class Tournament:
         
         return score
 
-    def fixture_attractiveness(self, fixture,max_value = 10000,violated_factor = 0,critical_factor = 0):
+    def fixture_attractiveness(self, fixture,max_value = 10000,violated_factor = 0,critical_factor = 0, equality_factor = 0):
         total_score = 0
         
         for r in self.R:
@@ -142,7 +179,8 @@ class Tournament:
                 total_score += min(max_value,value)
                 
         violated, critical = self.feasibility(fixture)
-        return total_score - violated_factor*violated - critical_factor*critical
+        equality = equality_factor*self.expected_win_variance(fixture)
+        return total_score - violated_factor*violated - critical_factor*critical - equality
 
     def feasibility(self, fixture, debug=False):
         violated = 0

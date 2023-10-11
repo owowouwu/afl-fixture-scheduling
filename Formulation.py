@@ -11,7 +11,6 @@ teams = ["Adelaide Crows", "Brisbane Lions", "Carlton Blues", "Collingwood Magpi
      "St Kilda Saints", "Sydney Swans", "West Coast Eagles", "Western Bulldogs"]
 
 team_numbers = {team: number for number, team in enumerate(teams, start=0)}
-print(team_numbers['Carlton Blues'])
 
 locations = ['Victoria','NSW','SA','WA','QLD']
 location_numbers = {location: number for number, location in enumerate(locations, start=0)}

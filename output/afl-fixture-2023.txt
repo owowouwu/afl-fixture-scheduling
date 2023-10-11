@@ -1,0 +1,2 @@
+Data file path: data/afl-2023-AUSEasternStandardTime.csv
+Value of AFL Fixture for data/afl-2023-AUSEasternStandardTime.csv: -7218285.292386485

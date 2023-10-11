@@ -19,6 +19,11 @@ team_numbers = {team: number for number, team in enumerate(teams, start=0)}
 stadiums = ['MCG','Marvel Stadium','GMHBA Stadium','Adelaide Oval','Optus Stadium','Gabba',
             'Heritage Bank Stadium','SCG','GIANTS Stadium']
 stadium_numbers = {stadium: number for number, stadium in enumerate(stadiums, start=0)}
+home_stadiums = [['Adelaide Oval'],['Gabba'],['MCG','Marvel Stadium'],['MCG','Marvel Stadium'],['MCG','Marvel Stadium'],['Optus'],['GMHBA Stadium'],
+                 ['Heritage Bank Stadium'],['GIANTS Stadium'],['MCG'],['MCG'],['Marvel Stadium'],['Adelaide Oval'],
+                 ['MCG'],['Marvel Stadium'],['SCG'],['Optus Stadium'],['Marvel Stadium']]
+
+# add 
 
 
 timeslots = [i for i in range(7)]
@@ -76,9 +81,9 @@ def csv_to_fixture(data):
     # Decision Variables
     fixture_matrix = [[[[[0 for r in rounds] for t in timeslots] for s in Ss] for j in Ts] for i in Ts]
     
-    for row in data:
+    for _,row in data.iterrows():
         try:
-            i,j,s,t,r = row[4],row[5],row[3],row[2],int(row[1])
+            i,j,s,t,r = row["Home Team"],row["Away Team"],row["Location"],row["Date"],int(row["Round Number"])
             
         except Exception: # A post-regular season match
             continue
@@ -100,6 +105,10 @@ def csv_to_fixture(data):
                 s = "Marvel Stadium"
         elif i == "GWS Giants":
             s = "GIANTS Stadium"
+
+        # if none of these above checks work then we assign stadiums appropriate to the home team
+        if s not in stadium_numbers:
+            s = home_stadiums[team_numbers[i]][0]
             
             
         i,j = team_numbers[i],team_numbers[j]
