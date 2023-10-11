@@ -1,0 +1,2 @@
+Data file path: data/afl-2022-AUSEasternStandardTime.csv
+Value of AFL Fixture for data/afl-2022-AUSEasternStandardTime.csv: -378868.8037689199

@@ -38,5 +38,5 @@ def main(seed, rcl_length):
 
 if __name__ == '__main__':
     rcl_length = 10
-    seed = 123125125
+    seed = 1234
     main(seed, rcl_length)

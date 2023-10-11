@@ -312,7 +312,7 @@ class GreedyScheduler:
         # keep track of usage
         timeslot_usage = np.zeros((initial_rounds, self.n_timeslots))
         stadium_usage = np.zeros((initial_rounds, 2, self.n_stadiums))
-        print(f"Generating fixture for rounds {0}-{16}")
+        if print_fixture: print(f"Generating fixture for rounds {0}-{16}")
         for r in range(initial_rounds):
             matches_to_assign = match_list[r]
             for match in matches_to_assign:
@@ -355,7 +355,7 @@ class GreedyScheduler:
         # keep track of usage
         timeslot_usage_e = np.zeros((extra_rounds, self.n_timeslots))
         stadium_usage_e = np.zeros((extra_rounds, 2, self.n_stadiums))
-        print(f"Generating fixture for extra rounds {17}-{21}")
+        if print_fixture: print(f"Generating fixture for extra rounds {17}-{21}")
         for r in range(extra_rounds):
             matches_to_assign = match_list[r + initial_rounds]
             for match in matches_to_assign:
@@ -391,17 +391,23 @@ class GreedyScheduler:
         print("\nDone!\n")
         return final_fixture, timeslot_usage, stadium_usage
 
-    def grasp_heuristic(self, iterations, rcl_length = 10, do_ils = False, ils_iterations = 100):
-
+    def grasp_heuristic(self, seed, iterations, rcl_length = 10, greedy_constructor = 'by_round', do_ils = False, ils_iterations = 100,
+                        progress_bar = False, max_value = 2*(10**4), violated_factor = 2*(10**4), critical_factor = 10**6, equality_factor = 10**3
+                        ):
+            random.seed(seed)
             best_obj = -np.inf
             best_schedule = None
-            violated_penalty = 1000
-            critical_penalty = 1000000
-            objective = lambda x: self.tourn.fixture_attractiveness(x, violated_factor=violated_penalty,
-                                                                    critical_factor=critical_penalty)
-            for i in tqdm(range(iterations)):
-                fixture, _, _ = self.generate_fixture_from_matchlist(rcl_length = rcl_length)
-                # fixture = self.fix_schedule(fixture) # maintain feasibility
+            objective = lambda x: self.tourn.fixture_attractiveness(x, violated_factor=violated_factor,
+                                                                    critical_factor=critical_factor,
+                                                                    equality_factor = equality_factor,
+                                                                    max_value = max_value
+                                                                    )
+            for i in tqdm(range(iterations), disable = (not progress_bar)):
+                if greedy_constructor == 'by_round':
+                    fixture, _, _ = self.generate_fixture_from_matchlist(rcl_length = rcl_length)
+                elif greedy_constructor == 'whole_fixture':
+                    fixture, _, _ = self.generate_whole_fixture(rcl_length=rcl_length)
+                # fixture = self.fix_schedule(fixture) # fix schedule to maintainf easibility
                 if do_ils:
                     fixture, new_obj = iterated_local_search(fixture, objective, neigh_fun=random_neighbour,
                                                                   max_it=ils_iterations)
