@@ -320,11 +320,11 @@ def objective_value(fixture, gen_count):
 
     violated, critical = feasibility(fixture)
     
-    violated_penalty = 10**(4 + gen_count)
-    critical_penalty = 10**(10 + gen_count) 
+    violated_penalty = 10**(3 + np.log10(gen_count))
+    critical_penalty = 10**(6 + np.log10(gen_count)) 
     
-    print('Violated Constraints: ', violated, critical)
-    print('Factors: ', violated_penalty, critical_penalty)
+    # print('Violated Constraints: ', violated, critical)
+    # print('Factors: ', violated_penalty, critical_penalty)
 
     objective_value = - violated_penalty*violated - critical_penalty*critical + fixture_attractiveness(fixture, 2*10^4, critical_penalty, violated_penalty, 10^3) 
 
@@ -347,7 +347,8 @@ def genesis():
     
     pop = []
     for soln in MIP_solns:
-        pop.append([soln, objective_value(soln, gen_count=1)])
+        violated, critical = feasibility(soln)
+        pop.append([soln, objective_value(soln, gen_count=1), violated, critical])
     
     return pop
 
@@ -356,47 +357,55 @@ import random
 def select_parents(population):
     """
     Select two individuals from a population for reproduction.
-    
+
     Args:
-    - population (list): A list of individuals, where each individual is represented as a tuple (individual_data, objective_value).
-    
+    - population (list): A list of individuals, where each individual is represented as a tuple (fixture, objective_value, violated_constraints, violated_critical).
+
     Returns:
-    - parent1 (tuple): The first parent selected.
-    - parent2 (tuple): The second parent selected.
-    """
-    
+    - p1_index (int): The index of the first parent in the population.
+    - p2_index (int): The index of the second parent in the population.
+    """ 
+    # Check if the population is empty
+    if not population:
+        print('Population is Empty')
+        return None, None
+
     print('Romance')
-    # Sort the population by objective value in descending order (higher is better)
-    sorted_population = sorted(population, key=lambda x: x[1], reverse=True)
+    # Sort the population, first, by number of violated constraints (in ascending order, lower is better) & second, by objective value (in descending order, higher is better)
+    sorted_population = sorted(enumerate(population), key=lambda x: (x[1][2] + x[1][3], -x[1][1]))
 
     # Calculate the number of elite individuals (top 25%)
     num_elite = len(sorted_population) // 4
 
     if num_elite > 1:
         # If there are enough elite individuals, select the first parent as an elite individual
-        parent1 = random.choice(sorted_population[:num_elite])
+        p1_index = sorted_population[random.randint(0, num_elite - 1)][0]
     else:
         # If there are not enough elite individuals, choose both parents randomly
-        parent1 = random.choice(sorted_population)
-    
-    # Select the second parent randomly from the entire population
-    parent2 = random.choice(population)
+        p1_index = random.randint(0, len(population) - 1)
 
-    return parent1, parent2
+    # Select the second parent randomly from the entire population. Parent 2 must be different from parent1.
+    p2_index = random.randint(0, len(population) - 1)
+    while p2_index == p1_index:
+        p2_index = random.randint(0, len(population) - 1)
+        
+    return p1_index, p2_index
 
 def birth(parent1, parent2, gen_count):
     print('Birth')
-    # print(get_dimensions(parent1), get_dimensions(parent2))
+
     # Determine a random crossover point
     crossover_point = np.random.randint(0, len(parent1))  # Include 0, exclude len(parent1)
 
     # Create the first child by combining the first part of parent1 and the second part of parent2
     child1 = np.concatenate((parent1[:crossover_point], parent2[crossover_point:]))
+    c1_violated, c1_critical = feasibility(child1)
 
     # Create the second child by combining the first part of parent2 and the second part of parent1
     child2 = np.concatenate((parent2[:crossover_point], parent1[crossover_point:]))
+    c2_violated, c2_critical = feasibility(child2)
 
-    return [child1, objective_value(child1, gen_count)], [child2, objective_value(child2, gen_count)]
+    return [child1, objective_value(child1, gen_count), c1_violated, c1_critical], [child2, objective_value(child2, gen_count), c2_violated, c2_critical]
 
 def evolutionPlus():
 
@@ -405,56 +414,47 @@ def evolutionPlus():
     # Parameters 
     solns = []
     num_gen = 0
-    duration = 60 * 10
+    duration = 60 * 20
 
-    pop = genesis()  # Use the provided pop_size when calling genesis
+    pop = genesis()         
 
     best_soln = max(pop, key=lambda x: x[1])
     gen_count = 0 
-    while gen_count < np.log10(4):
+    while time.time() - start_time < duration:  
+            
         gen_count += 1
         # Select Parents
-        parent1, parent2 = select_parents(pop)
+        p1_index, p2_index = select_parents(pop)
+        parent1 = pop[p1_index]
+        parent2 = pop[p2_index]
+        # Remove parents from population, add them back into the population later! 
+        pop = [pop[i] for i in range(len(pop)) if i not in [p1_index, p2_index]]
 
         # Create Children
         child1, child2 = birth(parent1[0], parent2[0], gen_count)
-        pop.append(child1)
-        pop.append(child2)
         
-        # Death
         family = [parent1, parent2, child1, child2]
-        # Find family member with the minimum objective value
-        min_value = 1000000000000
-        to_die_idx = None
-        for i, member in enumerate(family):
-            if member[1] < min_value:
-                min_value = member[1]
-                to_die_idx = i
+            
+        sorted_family = sorted(family, key=lambda x: (x[2] + x[3], -x[1]))
+        # Delete the worst family member! 
+        sorted_family.pop()
+    
+        # Death, only re-introduce best individuals in the family
+        for i in sorted_family:
+            pop.append(i)
 
-        # Remove the element at to_die_idx
-        if to_die_idx is not None:
-            print('Death')
-            pop.pop(to_die_idx)
-
-        # Find the index of the element with the largest objective value
-        max_index = 0
-        max_value = pop[0][1]
-        for i, soln in enumerate(pop):
-            if soln[1] > max_value:
-                max_value = soln[1]
-                max_index = i
+        # Find the best solution 
+        # Sort the population, first, by number of violated constraints (in ascending order, lower is better) & second, by objective value (in descending order, higher is better)
+        sorted_pop = sorted(pop, key=lambda x: (x[2] + x[3], -x[1]))
 
         # Extract the element with the largest objective value 
-        best_soln = pop[max_index]
+        best_soln = sorted_pop[0]
         solns.append(best_soln)
-
-    for i, soln in enumerate(pop):
-        if soln[1] > max_value:
-            max_index = i
-    best_soln = pop[max_index]
 
     print('Solution: ', best_soln[0])
     print('Value: ', best_soln[1])
+    print('Violated Constraints (Non-Critical): ', best_soln[2])
+    print('Violated Constraints (Critical): ', best_soln[3])
     print('Generation: ', gen_count)
 
     return best_soln
@@ -462,8 +462,7 @@ def evolutionPlus():
 best_soln = evolutionPlus()
 print(best_soln)
 
-
-violated, critical = feasibility_print(best_soln[0])
+violated, critical = feasibility(best_soln[0])
 print("Number of Violated Critical Constraints: ",critical)
 print("Number of Violated Constraints: ",violated)
 
