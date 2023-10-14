@@ -37,7 +37,8 @@ class Tournament:
          for l in self.locations:
             self.locations[l]['stadiums'] = set([self.snames.index(s) for s in self.locations[l]['stadiums']])
 
-        
+         self.home_location_stadiums = [t['home_location_stadiums'] for t in self.teams]
+         self.home_stadiums = [t['home_stadiums'] for t in self.teams]
          self.fixture_matrix = np.array([[[[[0 for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C], dtype='bool')
          self.attractiveness_matrix = np.array([[[[[self.attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
          self.weight_matrix = np.array([[[[[self.prelim_attractiveness(i,j,s,t,r) for r in self.R] for t in self.T] for s in self.S] for j in self.C] for i in self.C])
@@ -252,19 +253,11 @@ class Tournament:
         for r in self.R:
             
             for t in [2,3,4,5,6]:
-                if sum(fixture[i][j][s][t][r] for i in self.C for j in self.C for s in self.S) == 0:
-                    violated += 1
-                    if debug: print(f"Violated constraint - no games played on {self.timeslots[t]['name']} in round {r}")
                 
                 if sum(fixture[i][j][s][t][r] for i in self.C for j in self.C for s in self.S) > 2:
                     violated += 1
                     if debug: print(f"Violated constraint - more than 2 games played on {self.timeslots[t]['name']} in round {r}")
 
-            
-            for t in [0,1]:
-                if sum(fixture[i][j][s][t][r] for i in self.C for j in self.C for s in self.S) > 1:
-                    violated += 1
-                    if debug: print(f"Violated critical constraint -  no games played on {self.timeslots[t]}")
 
         # Four away games in a row
         for i in self.C:
@@ -288,6 +281,18 @@ class Tournament:
         
         # no stadium can be found
         return -1
+
+    def find_game_to_swap(self,fixture,i,j):
+        games = np.array(np.where(fixture[i,j,:,:,:] == 1))
+        for i in range(games.shape[1]):
+            s = games[0][i]
+            t = games[1][i]
+            r = games[2][i]
+            s_new = self.find_stadium(fixture, j, t, r)
+            if s != -1: return True, (s,t,r), s_new
+        
+        return False, False, False
+        
 
     def home_away_swap(self, t, r):
         # set the current game being played to 0
@@ -362,3 +367,36 @@ class Tournament:
                 new_fixture[c1,a,s,t,r] = 1
 
         return new_fixture
+    
+    def fix_fixture(self, fixture):
+        # applies a couple quick fixes to a poor fixture to increase its feasibility
+        self.balance_home_games(fixture)
+
+        return fixture
+        
+
+    def balance_home_games(self, fixture):
+        
+        home_games_per_team = np.array([
+            np.sum(fixture[i,:,:,:,:]) for i in self.C
+        ])
+        # sort home games
+        teams = np.argsort(home_games_per_team)
+        home_games_per_team = home_games_per_team[teams]
+        for i in self.C:
+            if home_games_per_team[i] == 11: break
+
+            for j in range(len(teams) - 1, -1, - 1):
+                if i == j: break
+                if home_games_per_team[j] == 11: continue
+                while home_games_per_team[i] < 11:
+                    found_game, game, s_new = self.find_game_to_swap(fixture, teams[j],teams[i])
+                    if not found_game: break
+                    s,t,r = game
+                    fixture[teams[j], teams[i], s, t, r] = 0
+                    fixture[teams[i], teams[j], s_new, t, r] = 1
+                    home_games_per_team[i] += 1
+                    home_games_per_team[j] -= 1
+                
+        return fixture
+    

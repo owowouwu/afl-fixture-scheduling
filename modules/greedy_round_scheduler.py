@@ -1,6 +1,6 @@
 import numpy as np
 from tqdm import tqdm
-from .local_search import iterated_local_search, random_neighbour
+from .local_search import IteratedLocalSearch
 
 class GreedyByRoundScheduler:
 

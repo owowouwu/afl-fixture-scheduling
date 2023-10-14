@@ -4,13 +4,13 @@ import sys
 from modules.tournament import Tournament
 from modules.greedy_scheduler import GreedyScheduler
 
-def main(seed, iterations, rcl_length , greedy_constructor, do_ils, ils_iterations, progress_bar,
+def main(seed, year, iterations, rcl_length , greedy_constructor, do_ils, ils_iterations, progress_bar,
         max_value, violated_factor, critical_factor, equality_factor
         ):
-    with open('teams.json', 'r') as f:
+    with open(f'data/teams{year}.json', 'r') as f:
         teams = json.load(f)
 
-    with open('locations.json', 'r') as f:
+    with open('data/locations.json', 'r') as f:
         locations = json.load(f)
 
     stadiums = {}
@@ -41,19 +41,20 @@ def main(seed, iterations, rcl_length , greedy_constructor, do_ils, ils_iteratio
                                                 critical_factor = critical_factor, equality_factor=equality_factor 
                                             )
     tourn.fixture_matrix = schedule
-    np.save(f'ga_input/greedy{seed}.npy', schedule)
+    np.save(f'solutions/greedy/{year}-greedy1-{seed}.npy', schedule)
     print("objective: ", obj)
     print("constraints violated: ", tourn.feasibility(schedule, debug=True))
 
 if __name__ == '__main__':
     rcl_length = 10
     seed = int(sys.argv[1])
+    year = int(sys.argv[2])
     greedy_constructor = 'by_round'
     do_ils = False
     ils_iterations = 1000
-    iterations = 50
+    iterations = 100
     progress_bar = False
     max_value,violated_factor,critical_factor,equality_factor = 2*(10**4),2*10**4,10**6,10**3
-    main(seed,iterations, rcl_length, greedy_constructor, do_ils, ils_iterations, progress_bar,
+    main(seed,year,iterations, rcl_length, greedy_constructor, do_ils, ils_iterations, progress_bar,
         max_value,violated_factor,critical_factor,equality_factor
         )
