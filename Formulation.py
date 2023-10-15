@@ -154,7 +154,7 @@ def generate_initial_fixture():
 
 
     fixture = model.addVars(index,vtype=GRB.BINARY)
-    game_on = model.addVars(timeslots_index,vtype=GRB.BINARY)
+    #game_on = model.addVars(timeslots_index,vtype=GRB.BINARY)
     equality = model.addVars([(i) for i in Ts])
         
     
@@ -218,11 +218,11 @@ def generate_initial_fixture():
         for t in [2,3,4,5,6]:
             model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for s in Ss) <= 2, f"NoMoreThanTwoSimultaneousGames_{r}")
         
-        for t in timeslots:
-            model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for s in Ss) >= game_on[t,r], f"IncentiviseAtLeastOneGameInEachTimeslot_{r}_{t}")
+        #for t in timeslots:
+         #   model.addConstr(quicksum(fixture[i, j, s, t, r] for i in Ts for j in Ts for s in Ss) >= game_on[t,r], f"IncentiviseAtLeastOneGameInEachTimeslot_{r}_{t}")
             
     
-    # WHAT DO THESE MEAN    
+    # These find the absolute value for how many wins away from the AFL average each team is (the average numbers of wins in a 22 game season is 11).    
     for i in Ts:
         model.addConstr(equality[i] >= quicksum(probability_win(i, j, s)*fixture[i,j,s,t,r] + (1-probability_win(j,i,s))*fixture[j,i,s,t,r] 
                                                    for j in Ts for s in Ss for t in timeslots for r in rounds)-11)
@@ -230,10 +230,10 @@ def generate_initial_fixture():
         model.addConstr(equality[i] >= 11-quicksum(probability_win(i, j, s)*fixture[i,j,s,t,r] + (1-probability_win(j,i,s))*fixture[j,i,s,t,r] 
                                                       for j in Ts for s in Ss for t in timeslots for r in rounds))
 
-
+    # We remove the requirement of at least one game in each timeslot, it leads to errors
     model.setObjective(quicksum(attractiveness(i,j,s,t,r)*fixture[i,j,s,t,r] for i in Ts for j in Ts for s in Ss for t in timeslots for r in rounds) 
-                       + 250*quicksum(game_on[t,r] for t in timeslots for r in rounds) - 10000*quicksum(equality[i] for i in Ts), GRB.MAXIMIZE)
-    
+                       - 10000*quicksum(equality[i] for i in Ts), GRB.MAXIMIZE)
+    #+ 250*quicksum(game_on[t,r] for t in timeslots for r in rounds) 
     
     model.optimize()
     
@@ -318,8 +318,8 @@ def feasibility(fixture):
             violated += max(0,1-sum(fixture[i][j][s][t][r] for i in Ts for j in Ts for s in Ss)) # At least one game each timeslot
             violated += max(0,sum(fixture[i][j][s][t][r] for i in Ts for j in Ts for s in Ss)-2)
         
-        for t in [0,1]:
-            violated += max(0,sum(fixture[i][j][s][t][r] for i in Ts for j in Ts for s in Ss)-1) # One game
+        #for t in [0,1]:
+         #   violated += max(0,sum(fixture[i][j][s][t][r] for i in Ts for j in Ts for s in Ss)-1) # One game
             
             
     return violated, critical
