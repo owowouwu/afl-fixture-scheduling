@@ -327,30 +327,25 @@ def objective_value(fixture):
 
     return objective_value
 
-def genesis(initial_sol_type):
+def genesis():
     print('Genesis')
 
-    if initial_sol_type == 'MILP':
-        # MIP SOLUTION
-        with open('solutions/MILP_Fixture_1000.pkl', 'rb') as pkl_file:
-            MIP_soln1 = pkl.load(pkl_file)
-        with open('solutions/MILP_Fixture_10000.pkl', 'rb') as pkl_file:
-            MIP_soln2 = pkl.load(pkl_file)
-        with open('solutions/MILP_Fixture_100000.pkl', 'rb') as pkl_file:
-            MIP_soln3 = pkl.load(pkl_file)
-        with open('solutions/MILP_Fixture_1000000.pkl', 'rb') as pkl_file:
-            MIP_soln4 = pkl.load(pkl_file)
-        
-        solns = [MIP_soln1, MIP_soln2, MIP_soln3, MIP_soln4]
+    # MIP SOLUTION
+    # MIP SOLUTION
+    MIP_soln1 = np.load('initialPopulation\MILP_Fixture_10000.npy')
+    MIP_soln2 = np.load('initialPopulation\MILP_Fixture_1000000.npy')
+    Greedy_soln1 = np.load('initialPopulation/2022-greedy1-1.npy')
+    Greedy_soln2 = np.load('initialPopulation/2023-greedy1-2.npy')
 
-    elif initial_sol_type == 'greedy':
-        solns = [np.load(f'ga_input/greedy{i}.npy') for i in range(1,5)]
+    MIP_solns = [MIP_soln1, MIP_soln2, Greedy_soln1, Greedy_soln2]
     
     pop = []
-    for soln in solns:
-        pop.append([soln, objective_value(soln)])
+    for soln in MIP_solns:
+        violated, critical = feasibility(soln)
+        pop.append([soln, objective_value(soln), violated, critical])
     
     return pop
+
 
 import random
 
@@ -452,18 +447,22 @@ def evolutionPlus():
         if soln[1] > max_value:
             max_index = i
     best_soln = pop[max_index]
+    
+    np.save("GA_soln_progress.npy", solns)
 
     print('Solution: ', best_soln[0])
     print('Value: ', best_soln[1])
 
-    return best_soln
+    return best_soln, num_gen
 
-best_soln = evolutionPlus()
+best_soln, num_gen = evolutionPlus()
 print(best_soln)
+np.save('GA_soln.npy', [best_soln, num_gen])
 
 violated, critical = feasibility(best_soln[0])
 print("Number of Violated Critical Constraints: ",critical)
 print("Number of Violated Constraints: ",violated)
+print("Generation: ", num_gen)
 
 import sys
 

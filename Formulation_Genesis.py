@@ -234,7 +234,7 @@ def generate_initial_fixture():
 
 
     model.setObjective(gp.quicksum(attractiveness(i,j,s,t,r)*fixture[i,j,s,t,r] for i in Ts for j in Ts for s in Ss for t in timeslots for r in rounds) 
-                       + 250*gp.quicksum(game_on[t,r] for t in timeslots for r in rounds) - 100000*gp.quicksum(equality[i] for i in Ts), GRB.MAXIMIZE)
+                       - 10*gp.quicksum(equality[i] for i in Ts), GRB.MAXIMIZE)
     
     
     model.optimize()
@@ -354,5 +354,5 @@ max_value,violated_factor,critical_factor,equality_factor = 2*(10**4),2*10**4,10
 value = fixture_attractiveness(MILP_fixture,max_value,violated_factor,critical_factor,equality_factor)
 
 print(value)
-with open(f'MILP_Fixture_1000000.pkl', 'wb') as file:
-    pickle.dump(MILP_fixture, file)
+print(MILP_fixture)
+np.save('MILP_Fixture_10000.npy', MILP_fixture)
