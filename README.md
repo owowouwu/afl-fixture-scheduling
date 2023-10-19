@@ -1,6 +1,8 @@
-Established in 1897, The Australian Football League (AFL) is one of the most popular Australian Sports Leagues, attracting over 125 million spectators in 2022. Generating the annual AFL fixture is a difficult task, requiring a balance between many, often conflicting, interests. For example, competition fairness, revenue, spectator expectations, team expectations, and resource availability, among other factors, must be considered. An interconnected web of objectives and constraints is navigated to build an AFL fixture that balances multiple objectives and adheres to the unique characteristics of the league. \\
+# Background
 
-In this project we aim to implement and combine a number of heuristic algorithms and a mixed integer programming formulation of the problem. For details, see `report.pdf`.
+Established in 1897, The Australian Football League (AFL) is one of the most popular Australian Sports Leagues, attracting over 125 million spectators in 2022. Generating the annual AFL fixture is a difficult task, requiring a balance between many, often conflicting, interests. For example, competition fairness, revenue, spectator expectations, team expectations, and resource availability, among other factors, must be considered. An interconnected web of objectives and constraints is navigated to build an AFL fixture that balances multiple objectives and adheres to the unique characteristics of the league. \
+
+In this project we aim to implement and combine a number of heuristic algorithms and a mixed integer programming formulation of the problem. For details, see `scheduling_report.pdf`.
 
 # Requirements
 
