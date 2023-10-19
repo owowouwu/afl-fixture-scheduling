@@ -1,0 +1,377 @@
+Did not find game - Melbourne Demons vs. Geelong Cats being considered, using soft weighting
+Did not find game - Melbourne Demons vs. Carlton Blues being considered, using soft weighting
+Did not find game - Richmond Tigers vs. West Coast Eagles being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. Western Bulldogs being considered, using soft weighting
+Did not find game - Melbourne Demons vs. North Melbourne Kangaroos being considered, using soft weighting
+Did not find game - Melbourne Demons vs. Essendon Bombers being considered, using soft weighting
+Did not find game - Melbourne Demons vs. North Melbourne Kangaroos being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. St Kilda Saints being considered, using soft weighting
+Did not find game - Richmond Tigers vs. Brisbane Lions being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. Port Adelaide Power being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. Port Adelaide Power being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. St Kilda Saints being considered, using soft weighting
+Did not find game - Richmond Tigers vs. Western Bulldogs being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. Collingwood Magpies being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. Port Adelaide Power being considered, using soft weighting
+Did not find game - Melbourne Demons vs. Richmond Tigers being considered, using soft weighting
+Did not find game - Richmond Tigers vs. St Kilda Saints being considered, using soft weighting
+Did not find game - Richmond Tigers vs. Fremantle Dockers being considered, using soft weighting
+Did not find game - St Kilda Saints vs. Port Adelaide Power being considered, using soft weighting
+Did not find game - Richmond Tigers vs. Collingwood Magpies being considered, using soft weighting
+Did not find game - Melbourne Demons vs. North Melbourne Kangaroos being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. St Kilda Saints being considered, using soft weighting
+Did not find game - Melbourne Demons vs. Geelong Cats being considered, using soft weighting
+Did not find game - Melbourne Demons vs. Greater Western Sydney Giants being considered, using soft weighting
+Did not find game - Melbourne Demons vs. Richmond Tigers being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. Melbourne Demons being considered, using soft weighting
+Did not find game - Melbourne Demons vs. Greater Western Sydney Giants being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. St Kilda Saints being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. Port Adelaide Power being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. St Kilda Saints being considered, using soft weighting
+Did not find game - Essendon Bombers vs. Fremantle Dockers being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. Gold Coast Suns being considered, using soft weighting
+Did not find game - Hawthorn Hawks vs. Port Adelaide Power being considered, using soft weighting
+Did not find game - Melbourne Demons vs. Greater Western Sydney Giants being considered, using soft weighting
+Did not find game - Melbourne Demons vs. Geelong Cats being considered, using soft weighting
+objective:  -3944184.2641000794
+Violated constraint - Adelaide Crows played consecutive rounds 6,7,8,9 as away games
+Violated constraint - Brisbane Lions played consecutive rounds rounds 6,7,8 outside of home stadium
+Violated constraint - Brisbane Lions played consecutive rounds rounds 12,13,14 outside of home stadium
+Violated constraint - Brisbane Lions played consecutive rounds 0,1,2,3 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 1,2,3,4 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 2,3,4,5 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 3,4,5,6 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 4,5,6,7 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 5,6,7,8 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 6,7,8,9 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 7,8,9,10 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 8,9,10,11 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 9,10,11,12 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 10,11,12,13 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 11,12,13,14 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 12,13,14,15 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 13,14,15,16 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 14,15,16,17 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 15,16,17,18 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 16,17,18,19 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 17,18,19,20 as away games
+Violated constraint - Brisbane Lions played consecutive rounds 18,19,20,21 as away games
+Violated constraint - Essendon Bombers played consecutive rounds rounds 16,17,18 outside of home stadium
+Violated constraint - Fremantle Dockers played consecutive rounds rounds 2,3,4 outside of home stadium
+Violated constraint - Fremantle Dockers played consecutive rounds rounds 16,17,18 outside of home stadium
+Violated constraint - Gold Coast Suns played consecutive rounds rounds 10,11,12 outside of home stadium
+Violated constraint - Gold Coast Suns played consecutive rounds rounds 11,12,13 outside of home stadium
+Violated constraint - Gold Coast Suns played consecutive rounds rounds 12,13,14 outside of home stadium
+Violated constraint - Gold Coast Suns played consecutive rounds 0,1,2,3 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 1,2,3,4 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 2,3,4,5 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 3,4,5,6 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 4,5,6,7 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 5,6,7,8 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 6,7,8,9 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 7,8,9,10 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 8,9,10,11 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 9,10,11,12 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 10,11,12,13 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 11,12,13,14 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 12,13,14,15 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 13,14,15,16 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 14,15,16,17 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 15,16,17,18 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 16,17,18,19 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 17,18,19,20 as away games
+Violated constraint - Gold Coast Suns played consecutive rounds 18,19,20,21 as away games
+Violated constraint - Greater Western Sydney Giants played consecutive rounds rounds 10,11,12 outside of home stadium
+Violated constraint - Greater Western Sydney Giants played consecutive rounds rounds 14,15,16 outside of home stadium
+Violated constraint - Hawthorn Hawks played consecutive rounds rounds 14,15,16 outside of home stadium
+Violated constraint - Melbourne Demons played consecutive rounds rounds 3,4,5 outside of home stadium
+Violated constraint - North Melbourne Kangaroos played consecutive rounds rounds 3,4,5 outside of home stadium
+Violated constraint - North Melbourne Kangaroos played consecutive rounds rounds 9,10,11 outside of home stadium
+Violated constraint - Port Adelaide Power played consecutive rounds rounds 9,10,11 outside of home stadium
+Violated constraint - Port Adelaide Power played consecutive rounds rounds 10,11,12 outside of home stadium
+Violated constraint - Port Adelaide Power played consecutive rounds 9,10,11,12 as away games
+Violated constraint - Sydney Swans played consecutive rounds rounds 7,8,9 outside of home stadium
+Violated constraint - Sydney Swans played consecutive rounds rounds 17,18,19 outside of home stadium
+Violated constraint - Sydney Swans played consecutive rounds rounds 18,19,20 outside of home stadium
+Violated constraint - Sydney Swans played consecutive rounds 17,18,19,20 as away games
+Violated constraint - West Coast Eagles played consecutive rounds rounds 17,18,19 outside of home stadium
+Violated constraint - West Coast Eagles played consecutive rounds rounds 18,19,20 outside of home stadium
+Violated constraint - West Coast Eagles played consecutive rounds 17,18,19,20 as away games
+Violated critical constraint - team Western Bulldogs played 2.0 games outside home.
+Violated constraint - Western Bulldogs played consecutive rounds rounds 9,10,11 outside of home stadium
+Violated constraint - Western Bulldogs played consecutive rounds 9,10,11,12 as away games
+Violated critical constraint - 2+ Sunday games at stadium Optus in round 12
+Violated critical constraint - 2+ Saturday games at stadium Marvel in round 13
+Violated critical constraint - 2+ Sunday games at stadium MCG in round 14
+Violated critical constraint - 2+ Sunday games at stadium MCG in round 17
+Violated critical constraint - 2+ Saturday games at stadium Marvel in round 18
+Violated constraint - more than 2 games played on Saturday Evening in round 0
+Violated constraint - more than 2 games played on Sunday Afternoon in round 0
+Violated constraint - more than 2 games played on Sunday Afternoon in round 1
+Violated constraint - more than 2 games played on Saturday Night in round 2
+Violated constraint - more than 2 games played on Saturday Evening in round 3
+Violated constraint - more than 2 games played on Sunday Evening in round 3
+Violated constraint - more than 2 games played on Sunday Evening in round 4
+Violated constraint - more than 2 games played on Saturday Night in round 5
+Violated constraint - more than 2 games played on Sunday Evening in round 8
+Violated constraint - more than 2 games played on Saturday Night in round 9
+Violated constraint - more than 2 games played on Saturday Afternoon in round 10
+Violated constraint - more than 2 games played on Saturday Night in round 11
+Violated constraint - more than 2 games played on Sunday Evening in round 12
+Violated constraint - more than 2 games played on Sunday Afternoon in round 14
+Violated constraint - more than 2 games played on Saturday Evening in round 15
+Violated constraint - more than 2 games played on Sunday Evening in round 15
+Violated constraint - more than 2 games played on Sunday Evening in round 16
+Violated constraint - more than 2 games played on Saturday Evening in round 17
+Violated constraint - more than 2 games played on Sunday Afternoon in round 17
+Violated constraint - more than 2 games played on Saturday Afternoon in round 18
+Violated constraint - more than 2 games played on Sunday Evening in round 19
+constraints violated:  (98.0, 2.0)
+Round 0:
+Thursday Night: North Melbourne Kangaroos vs. St Kilda Saints at Marvel
+Friday Night: No Game
+Saturday Afternoon: No Game
+Saturday Evening: Essendon Bombers vs. Western Bulldogs at Marvel
+Saturday Evening: Geelong Cats vs. Carlton Blues at GMHBA
+Saturday Evening: Greater Western Sydney Giants vs. Adelaide Crows at Giants
+Saturday Evening: Hawthorn Hawks vs. West Coast Eagles at MCG
+Saturday Night: No Game
+Sunday Afternoon: Fremantle Dockers vs. Collingwood Magpies at Optus
+Sunday Afternoon: Gold Coast Suns vs. Brisbane Lions at HBS
+Sunday Afternoon: Melbourne Demons vs. Sydney Swans at MCG
+Sunday Afternoon: Port Adelaide Power vs. Richmond Tigers at Adelaide Oval
+Sunday Evening: No Game
+Round 1:
+Thursday Night: Essendon Bombers vs. Gold Coast Suns at Marvel
+Friday Night: Carlton Blues vs. Hawthorn Hawks at MCG
+Saturday Afternoon: Sydney Swans vs. Richmond Tigers at SCG
+Saturday Evening: West Coast Eagles vs. Port Adelaide Power at Optus
+Saturday Night: No Game
+Sunday Afternoon: Brisbane Lions vs. Melbourne Demons at Gabba
+Sunday Afternoon: Fremantle Dockers vs. Geelong Cats at Optus
+Sunday Afternoon: St Kilda Saints vs. Western Bulldogs at Marvel
+Sunday Evening: Adelaide Crows vs. North Melbourne Kangaroos at Adelaide Oval
+Sunday Evening: Collingwood Magpies vs. Greater Western Sydney Giants at MCG
+Round 2:
+Thursday Night: Western Bulldogs vs. Fremantle Dockers at Marvel
+Friday Night: Richmond Tigers vs. St Kilda Saints at MCG
+Saturday Afternoon: No Game
+Saturday Evening: Gold Coast Suns vs. Collingwood Magpies at HBS
+Saturday Evening: Greater Western Sydney Giants vs. Carlton Blues at Giants
+Saturday Night: Geelong Cats vs. Essendon Bombers at GMHBA
+Saturday Night: Hawthorn Hawks vs. Brisbane Lions at MCG
+Saturday Night: North Melbourne Kangaroos vs. West Coast Eagles at Marvel
+Sunday Afternoon: No Game
+Sunday Evening: Melbourne Demons vs. Adelaide Crows at MCG
+Sunday Evening: Port Adelaide Power vs. Sydney Swans at Adelaide Oval
+Round 3:
+Thursday Night: St Kilda Saints vs. Melbourne Demons at Marvel
+Friday Night: Collingwood Magpies vs. Essendon Bombers at MCG
+Saturday Afternoon: Carlton Blues vs. Fremantle Dockers at MCG
+Saturday Evening: Adelaide Crows vs. Gold Coast Suns at Adelaide Oval
+Saturday Evening: Brisbane Lions vs. Geelong Cats at Gabba
+Saturday Evening: Sydney Swans vs. Hawthorn Hawks at SCG
+Saturday Night: No Game
+Sunday Afternoon: No Game
+Sunday Evening: Richmond Tigers vs. North Melbourne Kangaroos at MCG
+Sunday Evening: West Coast Eagles vs. Greater Western Sydney Giants at Optus
+Sunday Evening: Western Bulldogs vs. Port Adelaide Power at Marvel
+Round 4:
+Thursday Night: Carlton Blues vs. Collingwood Magpies at MCG
+Friday Night: Western Bulldogs vs. North Melbourne Kangaroos at MCG
+Saturday Afternoon: Port Adelaide Power vs. Melbourne Demons at Adelaide Oval
+Saturday Afternoon: St Kilda Saints vs. Greater Western Sydney Giants at Marvel
+Saturday Evening: Richmond Tigers vs. Hawthorn Hawks at MCG
+Saturday Night: No Game
+Sunday Afternoon: Brisbane Lions vs. Essendon Bombers at Gabba
+Sunday Evening: Adelaide Crows vs. Fremantle Dockers at Adelaide Oval
+Sunday Evening: Sydney Swans vs. Gold Coast Suns at SCG
+Sunday Evening: West Coast Eagles vs. Geelong Cats at Optus
+Round 5:
+Thursday Night: No Game
+Friday Night: No Game
+Saturday Afternoon: Brisbane Lions vs. West Coast Eagles at Gabba
+Saturday Evening: Adelaide Crows vs. Western Bulldogs at Adelaide Oval
+Saturday Evening: Geelong Cats vs. North Melbourne Kangaroos at GMHBA
+Saturday Night: Carlton Blues vs. Sydney Swans at Marvel
+Saturday Night: Essendon Bombers vs. Richmond Tigers at MCG
+Saturday Night: Fremantle Dockers vs. Port Adelaide Power at Optus
+Saturday Night: Gold Coast Suns vs. Melbourne Demons at HBS
+Sunday Afternoon: No Game
+Sunday Evening: Collingwood Magpies vs. St Kilda Saints at MCG
+Sunday Evening: Greater Western Sydney Giants vs. Hawthorn Hawks at Giants
+Round 6:
+Thursday Night: Western Bulldogs vs. Greater Western Sydney Giants at Marvel
+Friday Night: Melbourne Demons vs. Geelong Cats at MCG
+Saturday Afternoon: Richmond Tigers vs. Collingwood Magpies at MCG
+Saturday Afternoon: St Kilda Saints vs. Carlton Blues at Marvel
+Saturday Evening: Sydney Swans vs. Brisbane Lions at SCG
+Saturday Night: Port Adelaide Power vs. Essendon Bombers at Adelaide Oval
+Saturday Night: West Coast Eagles vs. Adelaide Crows at Optus
+Sunday Afternoon: Hawthorn Hawks vs. Gold Coast Suns at MCG
+Sunday Evening: North Melbourne Kangaroos vs. Fremantle Dockers at Marvel
+Round 7:
+Thursday Night: Greater Western Sydney Giants vs. Richmond Tigers at Giants
+Friday Night: Carlton Blues vs. Western Bulldogs at Marvel
+Saturday Afternoon: Geelong Cats vs. Sydney Swans at GMHBA
+Saturday Afternoon: Melbourne Demons vs. North Melbourne Kangaroos at MCG
+Saturday Evening: Gold Coast Suns vs. St Kilda Saints at HBS
+Saturday Night: Collingwood Magpies vs. Brisbane Lions at Marvel
+Sunday Afternoon: Essendon Bombers vs. Adelaide Crows at Marvel
+Sunday Afternoon: Hawthorn Hawks vs. Port Adelaide Power at MCG
+Sunday Evening: Fremantle Dockers vs. West Coast Eagles at Optus
+Round 8:
+Thursday Night: Melbourne Demons vs. Carlton Blues at MCG
+Friday Night: North Melbourne Kangaroos vs. Brisbane Lions at Marvel
+Saturday Afternoon: Richmond Tigers vs. West Coast Eagles at MCG
+Saturday Evening: No Game
+Saturday Night: Port Adelaide Power vs. Adelaide Crows at Adelaide Oval
+Saturday Night: Western Bulldogs vs. Geelong Cats at Marvel
+Sunday Afternoon: St Kilda Saints vs. Sydney Swans at Marvel
+Sunday Evening: Gold Coast Suns vs. Fremantle Dockers at HBS
+Sunday Evening: Greater Western Sydney Giants vs. Essendon Bombers at Giants
+Sunday Evening: Hawthorn Hawks vs. Collingwood Magpies at MCG
+Round 9:
+Thursday Night: Essendon Bombers vs. Sydney Swans at Marvel
+Friday Night: Hawthorn Hawks vs. Melbourne Demons at MCG
+Saturday Afternoon: Carlton Blues vs. Adelaide Crows at MCG
+Saturday Evening: No Game
+Saturday Night: Fremantle Dockers vs. St Kilda Saints at Optus
+Saturday Night: Gold Coast Suns vs. Port Adelaide Power at HBS
+Saturday Night: Greater Western Sydney Giants vs. North Melbourne Kangaroos at Giants
+Sunday Afternoon: Collingwood Magpies vs. West Coast Eagles at MCG
+Sunday Evening: Brisbane Lions vs. Western Bulldogs at Gabba
+Sunday Evening: Geelong Cats vs. Richmond Tigers at GMHBA
+Round 10:
+Thursday Night: No Game
+Friday Night: Collingwood Magpies vs. Melbourne Demons at MCG
+Saturday Afternoon: Brisbane Lions vs. Port Adelaide Power at Gabba
+Saturday Afternoon: Geelong Cats vs. Gold Coast Suns at GMHBA
+Saturday Afternoon: Sydney Swans vs. Western Bulldogs at SCG
+Saturday Evening: Essendon Bombers vs. Hawthorn Hawks at MCG
+Saturday Evening: Fremantle Dockers vs. Greater Western Sydney Giants at Optus
+Saturday Night: No Game
+Sunday Afternoon: Adelaide Crows vs. Richmond Tigers at Adelaide Oval
+Sunday Afternoon: Carlton Blues vs. North Melbourne Kangaroos at MCG
+Sunday Evening: West Coast Eagles vs. St Kilda Saints at Optus
+Round 11:
+Thursday Night: Collingwood Magpies vs. Geelong Cats at MCG
+Friday Night: Adelaide Crows vs. Hawthorn Hawks at Adelaide Oval
+Saturday Afternoon: Brisbane Lions vs. Greater Western Sydney Giants at Gabba
+Saturday Afternoon: Sydney Swans vs. North Melbourne Kangaroos at SCG
+Saturday Evening: No Game
+Saturday Night: Carlton Blues vs. Gold Coast Suns at Marvel
+Saturday Night: Richmond Tigers vs. Western Bulldogs at MCG
+Saturday Night: West Coast Eagles vs. Melbourne Demons at Optus
+Sunday Afternoon: Essendon Bombers vs. Fremantle Dockers at MCG
+Sunday Evening: St Kilda Saints vs. Port Adelaide Power at Marvel
+Round 12:
+Thursday Night: Melbourne Demons vs. Richmond Tigers at MCG
+Friday Night: Essendon Bombers vs. Carlton Blues at MCG
+Saturday Afternoon: North Melbourne Kangaroos vs. Port Adelaide Power at Marvel
+Saturday Evening: Sydney Swans vs. Greater Western Sydney Giants at SCG
+Saturday Night: No Game
+Sunday Afternoon: West Coast Eagles vs. Gold Coast Suns at Optus
+Sunday Evening: Collingwood Magpies vs. Western Bulldogs at Marvel
+Sunday Evening: Fremantle Dockers vs. Brisbane Lions at Optus
+Sunday Evening: Geelong Cats vs. Adelaide Crows at GMHBA
+Sunday Evening: Hawthorn Hawks vs. St Kilda Saints at MCG
+Round 13:
+Thursday Night: Richmond Tigers vs. Brisbane Lions at MCG
+Friday Night: North Melbourne Kangaroos vs. Collingwood Magpies at Marvel
+Saturday Afternoon: Port Adelaide Power vs. Carlton Blues at Adelaide Oval
+Saturday Evening: St Kilda Saints vs. Adelaide Crows at Marvel
+Saturday Night: Melbourne Demons vs. Essendon Bombers at MCG
+Saturday Night: Western Bulldogs vs. Gold Coast Suns at Marvel
+Sunday Afternoon: Hawthorn Hawks vs. Fremantle Dockers at MCG
+Sunday Evening: Greater Western Sydney Giants vs. Geelong Cats at Giants
+Sunday Evening: Sydney Swans vs. West Coast Eagles at SCG
+Round 14:
+Thursday Night: St Kilda Saints vs. Essendon Bombers at Marvel
+Friday Night: West Coast Eagles vs. Carlton Blues at Optus
+Saturday Afternoon: Adelaide Crows vs. Brisbane Lions at Adelaide Oval
+Saturday Evening: No Game
+Saturday Night: Western Bulldogs vs. Hawthorn Hawks at Marvel
+Sunday Afternoon: Melbourne Demons vs. Greater Western Sydney Giants at MCG
+Sunday Afternoon: Port Adelaide Power vs. Geelong Cats at Adelaide Oval
+Sunday Afternoon: Sydney Swans vs. Collingwood Magpies at SCG
+Sunday Evening: North Melbourne Kangaroos vs. Gold Coast Suns at Marvel
+Sunday Evening: Richmond Tigers vs. Fremantle Dockers at MCG
+Round 15:
+Thursday Night: No Game
+Friday Night: No Game
+Saturday Afternoon: No Game
+Saturday Evening: Brisbane Lions vs. St Kilda Saints at Gabba
+Saturday Evening: Collingwood Magpies vs. Port Adelaide Power at MCG
+Saturday Evening: Essendon Bombers vs. North Melbourne Kangaroos at Marvel
+Saturday Night: Fremantle Dockers vs. Melbourne Demons at Optus
+Sunday Afternoon: Gold Coast Suns vs. Greater Western Sydney Giants at HBS
+Sunday Afternoon: West Coast Eagles vs. Western Bulldogs at Optus
+Sunday Evening: Adelaide Crows vs. Sydney Swans at Adelaide Oval
+Sunday Evening: Carlton Blues vs. Richmond Tigers at MCG
+Sunday Evening: Geelong Cats vs. Hawthorn Hawks at GMHBA
+Round 16:
+Thursday Night: St Kilda Saints vs. Geelong Cats at Marvel
+Friday Night: North Melbourne Kangaroos vs. Hawthorn Hawks at Marvel
+Saturday Afternoon: Brisbane Lions vs. Carlton Blues at Gabba
+Saturday Evening: Western Bulldogs vs. Melbourne Demons at Marvel
+Saturday Night: Adelaide Crows vs. Collingwood Magpies at Adelaide Oval
+Sunday Afternoon: West Coast Eagles vs. Essendon Bombers at Optus
+Sunday Evening: Port Adelaide Power vs. Greater Western Sydney Giants at Adelaide Oval
+Sunday Evening: Richmond Tigers vs. Gold Coast Suns at MCG
+Sunday Evening: Sydney Swans vs. Fremantle Dockers at SCG
+Round 17:
+Thursday Night: Hawthorn Hawks vs. Collingwood Magpies at MCG
+Friday Night: Melbourne Demons vs. Carlton Blues at MCG
+Saturday Afternoon: No Game
+Saturday Evening: Gold Coast Suns vs. Fremantle Dockers at HBS
+Saturday Evening: Greater Western Sydney Giants vs. Essendon Bombers at Giants
+Saturday Evening: St Kilda Saints vs. Sydney Swans at Marvel
+Saturday Night: No Game
+Sunday Afternoon: North Melbourne Kangaroos vs. Brisbane Lions at Marvel
+Sunday Afternoon: Port Adelaide Power vs. Adelaide Crows at Adelaide Oval
+Sunday Afternoon: Western Bulldogs vs. Geelong Cats at MCG
+Sunday Evening: Richmond Tigers vs. West Coast Eagles at MCG
+Round 18:
+Thursday Night: Geelong Cats vs. Essendon Bombers at GMHBA
+Friday Night: Hawthorn Hawks vs. Brisbane Lions at MCG
+Saturday Afternoon: Gold Coast Suns vs. Collingwood Magpies at HBS
+Saturday Afternoon: Greater Western Sydney Giants vs. Carlton Blues at Giants
+Saturday Afternoon: Melbourne Demons vs. Adelaide Crows at MCG
+Saturday Afternoon: North Melbourne Kangaroos vs. West Coast Eagles at Marvel
+Saturday Evening: No Game
+Saturday Night: Western Bulldogs vs. Fremantle Dockers at Marvel
+Sunday Afternoon: Port Adelaide Power vs. Sydney Swans at Adelaide Oval
+Sunday Evening: Richmond Tigers vs. St Kilda Saints at MCG
+Round 19:
+Thursday Night: Greater Western Sydney Giants vs. Hawthorn Hawks at Giants
+Friday Night: Essendon Bombers vs. Richmond Tigers at MCG
+Saturday Afternoon: Collingwood Magpies vs. St Kilda Saints at Marvel
+Saturday Afternoon: Gold Coast Suns vs. Melbourne Demons at HBS
+Saturday Evening: Adelaide Crows vs. Western Bulldogs at Adelaide Oval
+Saturday Night: No Game
+Sunday Afternoon: Brisbane Lions vs. West Coast Eagles at Gabba
+Sunday Evening: Carlton Blues vs. Sydney Swans at MCG
+Sunday Evening: Fremantle Dockers vs. Port Adelaide Power at Optus
+Sunday Evening: Geelong Cats vs. North Melbourne Kangaroos at GMHBA
+Round 20:
+Thursday Night: Melbourne Demons vs. Sydney Swans at MCG
+Friday Night: Geelong Cats vs. Carlton Blues at GMHBA
+Saturday Afternoon: Fremantle Dockers vs. Collingwood Magpies at Optus
+Saturday Afternoon: Hawthorn Hawks vs. Essendon Bombers at MCG
+Saturday Evening: No Game
+Saturday Night: Gold Coast Suns vs. Brisbane Lions at HBS
+Saturday Night: North Melbourne Kangaroos vs. St Kilda Saints at Marvel
+Sunday Afternoon: Greater Western Sydney Giants vs. Adelaide Crows at Giants
+Sunday Evening: Port Adelaide Power vs. Richmond Tigers at Adelaide Oval
+Sunday Evening: Western Bulldogs vs. West Coast Eagles at Marvel
+Round 21:
+Thursday Night: St Kilda Saints vs. Western Bulldogs at Marvel
+Friday Night: Sydney Swans vs. Richmond Tigers at SCG
+Saturday Afternoon: Fremantle Dockers vs. Geelong Cats at Optus
+Saturday Evening: Brisbane Lions vs. Melbourne Demons at Gabba
+Saturday Evening: Essendon Bombers vs. Gold Coast Suns at MCG
+Saturday Night: Carlton Blues vs. Hawthorn Hawks at Marvel
+Sunday Afternoon: Collingwood Magpies vs. Greater Western Sydney Giants at Marvel
+Sunday Afternoon: West Coast Eagles vs. Port Adelaide Power at Optus
+Sunday Evening: Adelaide Crows vs. North Melbourne Kangaroos at Adelaide Oval

@@ -1,48 +1,23 @@
-# Brainstorm
+Established in 1897, The Australian Football League (AFL) is one of the most popular Australian Sports Leagues, attracting over 125 million spectators in 2022. Generating the annual AFL fixture is a difficult task, requiring a balance between many, often conflicting, interests. For example, competition fairness, revenue, spectator expectations, team expectations, and resource availability, among other factors, must be considered. An interconnected web of objectives and constraints is navigated to build an AFL fixture that balances multiple objectives and adheres to the unique characteristics of the league. \\
 
-## Parameters 
+In this project we aim to implement and combine a number of heuristic algorithms and a mixed integer programming formulation of the problem. For details, see `report.pdf`.
 
-- a graph of locations (cities). In each location we have a number of playing grounds.
-- a number of teams T. Each team is associated with a particular home location and may also have a particular playing ground.
-	- team parameters
-		- membership
-		- rating
-		- popularity
-- a game is played between two teams at a particular stadium.
-	- a game's viewership and attendance can be affected
-		- by the day, 
-		- time of day, 
-		- stadium 
-		- teams playing
+# Requirements
 
-## (Possible) Objectives
+- Gurobi (MILP Solution)
+- NumPy
+- Pandas
 
-- maximise the 'value' of matches over the season
-	- can be measured by a number of ways - 
-		- viewership/attendance, 
-		- how good each team is and how close the teams are in rank
-			- are there any rivalries?
+# Usage
 
-objective function can be a combination of the things
+The root directory contains a number of scripts for all the algorithms that have been implemented. 
 
-## Decision Variables
+- `Formulation.py` contains a mixed integer programming solution for our problem using Gurobi as a black box solver. `Formulation_Genesis.py` is used to solve relaxations of the problem to generate initial populations for our genetic algorithm.
+- `random_greedy_fixtures1.py` and `random_greedy_fixtures2.py` use two greedy heuristics.
+- `grasp.py` contains implements GRASP using the aforementioned greedy heuristics.
+- `GA_base.py`, `GA_improved.py` are our implementations of the genetic algorithm. The improved version is elaborated upon further in the report.
+- `simulated_annealing.ipynb` contains code for simulated annealing.
 
-scheduling the time and location of the games each team is going to play in the season
+A couple bash scripts have also been provided in order to run the greedy and GRASP heuristics for multiple seeds.
 
-## Constraints
 
-- team travel restrictions
-- must be time between games for a team
-	- can be a constraint or added as a penalty
-- precedence - teams may have 
-- bespoke constraints - purposefully scheduling games between rivals
-- minimise the clashes between 'good' games that may occur concurrently
-- minimise consecutive byes
-- teams can also be required to travel to specific locations to promote less popular regions.
-
-# Specific Sports
-
-- AFL
-	- 18 team round robin with 5 additional rounds 
-- World Cup
-	- 32 teams, 8 houses, round robin in house
