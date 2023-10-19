@@ -2,6 +2,12 @@ Did not find game - Melbourne Demons vs. Geelong Cats being considered, using so
 Did not find game - Melbourne Demons vs. Carlton Blues being considered, using soft weighting
 Did not find game - Richmond Tigers vs. West Coast Eagles being considered, using soft weighting
 Did not find game - Hawthorn Hawks vs. Western Bulldogs being considered, using soft weighting
+Violated constraint - Brisbane Lions played Richmond Tigers again too soon.
+Violated constraint - Richmond Tigers played Brisbane Lions again too soon.
+Violated constraint - Port Adelaide Power played St Kilda Saints again too soon.
+Violated constraint - St Kilda Saints played Port Adelaide Power again too soon.
+Violated constraint - Brisbane Lions played Richmond Tigers again too soon.
+Violated constraint - Richmond Tigers played Brisbane Lions again too soon.
 Did not find game - Melbourne Demons vs. North Melbourne Kangaroos being considered, using soft weighting
 Did not find game - Melbourne Demons vs. Essendon Bombers being considered, using soft weighting
 Did not find game - Melbourne Demons vs. North Melbourne Kangaroos being considered, using soft weighting
@@ -24,19 +30,41 @@ Did not find game - Melbourne Demons vs. Geelong Cats being considered, using so
 Did not find game - Melbourne Demons vs. Greater Western Sydney Giants being considered, using soft weighting
 Did not find game - Melbourne Demons vs. Richmond Tigers being considered, using soft weighting
 Did not find game - Hawthorn Hawks vs. Melbourne Demons being considered, using soft weighting
+Violated constraint - Greater Western Sydney Giants played Western Bulldogs again too soon.
+Violated constraint - Western Bulldogs played Greater Western Sydney Giants again too soon.
+Violated constraint - Hawthorn Hawks played Western Bulldogs again too soon.
+Violated constraint - Western Bulldogs played Hawthorn Hawks again too soon.
+Violated constraint - Hawthorn Hawks played Western Bulldogs again too soon.
+Violated constraint - Western Bulldogs played Hawthorn Hawks again too soon.
 Did not find game - Melbourne Demons vs. Greater Western Sydney Giants being considered, using soft weighting
 Did not find game - Hawthorn Hawks vs. St Kilda Saints being considered, using soft weighting
 Did not find game - Hawthorn Hawks vs. Port Adelaide Power being considered, using soft weighting
+Violated constraint - Adelaide Crows played Greater Western Sydney Giants again too soon.
+Violated constraint - Greater Western Sydney Giants played Adelaide Crows again too soon.
 Did not find game - Hawthorn Hawks vs. St Kilda Saints being considered, using soft weighting
 Did not find game - Essendon Bombers vs. Fremantle Dockers being considered, using soft weighting
+Violated constraint - Adelaide Crows played West Coast Eagles again too soon.
+Violated constraint - West Coast Eagles played Adelaide Crows again too soon.
+Violated constraint - Carlton Blues played Melbourne Demons again too soon.
+Violated constraint - Melbourne Demons played Carlton Blues again too soon.
+Violated constraint - Adelaide Crows played Melbourne Demons again too soon.
+Violated constraint - Melbourne Demons played Adelaide Crows again too soon.
+Violated constraint - St Kilda Saints played Sydney Swans again too soon.
+Violated constraint - Sydney Swans played St Kilda Saints again too soon.
+Violated constraint - Carlton Blues played Hawthorn Hawks again too soon.
+Violated constraint - Hawthorn Hawks played Carlton Blues again too soon.
 Did not find game - Hawthorn Hawks vs. Gold Coast Suns being considered, using soft weighting
+Violated constraint - Fremantle Dockers played Geelong Cats again too soon.
+Violated constraint - Geelong Cats played Fremantle Dockers again too soon.
+Violated constraint - Adelaide Crows played St Kilda Saints again too soon.
+Violated constraint - St Kilda Saints played Adelaide Crows again too soon.
 Did not find game - Hawthorn Hawks vs. Port Adelaide Power being considered, using soft weighting
 Did not find game - Melbourne Demons vs. Greater Western Sydney Giants being considered, using soft weighting
 Did not find game - Melbourne Demons vs. Geelong Cats being considered, using soft weighting
-objective:  -3944184.2641000794
+objective:  -3666320.3682779595
 Violated constraint - Adelaide Crows played consecutive rounds 6,7,8,9 as away games
-Violated constraint - Brisbane Lions played consecutive rounds rounds 6,7,8 outside of home stadium
-Violated constraint - Brisbane Lions played consecutive rounds rounds 12,13,14 outside of home stadium
+Violated constraint - Brisbane Lions played consecutive rounds rounds 6,7,8 outside of home location
+Violated constraint - Brisbane Lions played consecutive rounds rounds 12,13,14 outside of home location
 Violated constraint - Brisbane Lions played consecutive rounds 0,1,2,3 as away games
 Violated constraint - Brisbane Lions played consecutive rounds 1,2,3,4 as away games
 Violated constraint - Brisbane Lions played consecutive rounds 2,3,4,5 as away games
@@ -56,12 +84,11 @@ Violated constraint - Brisbane Lions played consecutive rounds 15,16,17,18 as aw
 Violated constraint - Brisbane Lions played consecutive rounds 16,17,18,19 as away games
 Violated constraint - Brisbane Lions played consecutive rounds 17,18,19,20 as away games
 Violated constraint - Brisbane Lions played consecutive rounds 18,19,20,21 as away games
-Violated constraint - Essendon Bombers played consecutive rounds rounds 16,17,18 outside of home stadium
-Violated constraint - Fremantle Dockers played consecutive rounds rounds 2,3,4 outside of home stadium
-Violated constraint - Fremantle Dockers played consecutive rounds rounds 16,17,18 outside of home stadium
-Violated constraint - Gold Coast Suns played consecutive rounds rounds 10,11,12 outside of home stadium
-Violated constraint - Gold Coast Suns played consecutive rounds rounds 11,12,13 outside of home stadium
-Violated constraint - Gold Coast Suns played consecutive rounds rounds 12,13,14 outside of home stadium
+Violated constraint - Fremantle Dockers played consecutive rounds rounds 2,3,4 outside of home location
+Violated constraint - Fremantle Dockers played consecutive rounds rounds 16,17,18 outside of home location
+Violated constraint - Gold Coast Suns played consecutive rounds rounds 10,11,12 outside of home location
+Violated constraint - Gold Coast Suns played consecutive rounds rounds 11,12,13 outside of home location
+Violated constraint - Gold Coast Suns played consecutive rounds rounds 12,13,14 outside of home location
 Violated constraint - Gold Coast Suns played consecutive rounds 0,1,2,3 as away games
 Violated constraint - Gold Coast Suns played consecutive rounds 1,2,3,4 as away games
 Violated constraint - Gold Coast Suns played consecutive rounds 2,3,4,5 as away games
@@ -81,24 +108,18 @@ Violated constraint - Gold Coast Suns played consecutive rounds 15,16,17,18 as a
 Violated constraint - Gold Coast Suns played consecutive rounds 16,17,18,19 as away games
 Violated constraint - Gold Coast Suns played consecutive rounds 17,18,19,20 as away games
 Violated constraint - Gold Coast Suns played consecutive rounds 18,19,20,21 as away games
-Violated constraint - Greater Western Sydney Giants played consecutive rounds rounds 10,11,12 outside of home stadium
-Violated constraint - Greater Western Sydney Giants played consecutive rounds rounds 14,15,16 outside of home stadium
-Violated constraint - Hawthorn Hawks played consecutive rounds rounds 14,15,16 outside of home stadium
-Violated constraint - Melbourne Demons played consecutive rounds rounds 3,4,5 outside of home stadium
-Violated constraint - North Melbourne Kangaroos played consecutive rounds rounds 3,4,5 outside of home stadium
-Violated constraint - North Melbourne Kangaroos played consecutive rounds rounds 9,10,11 outside of home stadium
-Violated constraint - Port Adelaide Power played consecutive rounds rounds 9,10,11 outside of home stadium
-Violated constraint - Port Adelaide Power played consecutive rounds rounds 10,11,12 outside of home stadium
+Violated constraint - Greater Western Sydney Giants played consecutive rounds rounds 14,15,16 outside of home location
+Violated constraint - Port Adelaide Power played consecutive rounds rounds 9,10,11 outside of home location
+Violated constraint - Port Adelaide Power played consecutive rounds rounds 10,11,12 outside of home location
 Violated constraint - Port Adelaide Power played consecutive rounds 9,10,11,12 as away games
-Violated constraint - Sydney Swans played consecutive rounds rounds 7,8,9 outside of home stadium
-Violated constraint - Sydney Swans played consecutive rounds rounds 17,18,19 outside of home stadium
-Violated constraint - Sydney Swans played consecutive rounds rounds 18,19,20 outside of home stadium
+Violated constraint - Sydney Swans played consecutive rounds rounds 7,8,9 outside of home location
+Violated constraint - Sydney Swans played consecutive rounds rounds 17,18,19 outside of home location
+Violated constraint - Sydney Swans played consecutive rounds rounds 18,19,20 outside of home location
 Violated constraint - Sydney Swans played consecutive rounds 17,18,19,20 as away games
-Violated constraint - West Coast Eagles played consecutive rounds rounds 17,18,19 outside of home stadium
-Violated constraint - West Coast Eagles played consecutive rounds rounds 18,19,20 outside of home stadium
+Violated constraint - West Coast Eagles played consecutive rounds rounds 17,18,19 outside of home location
+Violated constraint - West Coast Eagles played consecutive rounds rounds 18,19,20 outside of home location
 Violated constraint - West Coast Eagles played consecutive rounds 17,18,19,20 as away games
 Violated critical constraint - team Western Bulldogs played 2.0 games outside home.
-Violated constraint - Western Bulldogs played consecutive rounds rounds 9,10,11 outside of home stadium
 Violated constraint - Western Bulldogs played consecutive rounds 9,10,11,12 as away games
 Violated critical constraint - 2+ Sunday games at stadium Optus in round 12
 Violated critical constraint - 2+ Saturday games at stadium Marvel in round 13
@@ -126,7 +147,7 @@ Violated constraint - more than 2 games played on Saturday Evening in round 17
 Violated constraint - more than 2 games played on Sunday Afternoon in round 17
 Violated constraint - more than 2 games played on Saturday Afternoon in round 18
 Violated constraint - more than 2 games played on Sunday Evening in round 19
-constraints violated:  (98.0, 2.0)
+constraints violated:  (84, 2.0)
 Round 0:
 Thursday Night: North Melbourne Kangaroos vs. St Kilda Saints at Marvel
 Friday Night: No Game
@@ -153,11 +174,11 @@ Sunday Afternoon: St Kilda Saints vs. Western Bulldogs at Marvel
 Sunday Evening: Adelaide Crows vs. North Melbourne Kangaroos at Adelaide Oval
 Sunday Evening: Collingwood Magpies vs. Greater Western Sydney Giants at MCG
 Round 2:
+Thursday Night: Greater Western Sydney Giants vs. Carlton Blues at Giants
 Thursday Night: Western Bulldogs vs. Fremantle Dockers at Marvel
 Friday Night: Richmond Tigers vs. St Kilda Saints at MCG
 Saturday Afternoon: No Game
 Saturday Evening: Gold Coast Suns vs. Collingwood Magpies at HBS
-Saturday Evening: Greater Western Sydney Giants vs. Carlton Blues at Giants
 Saturday Night: Geelong Cats vs. Essendon Bombers at GMHBA
 Saturday Night: Hawthorn Hawks vs. Brisbane Lions at MCG
 Saturday Night: North Melbourne Kangaroos vs. West Coast Eagles at Marvel
@@ -358,13 +379,13 @@ Round 20:
 Thursday Night: Melbourne Demons vs. Sydney Swans at MCG
 Friday Night: Geelong Cats vs. Carlton Blues at GMHBA
 Saturday Afternoon: Fremantle Dockers vs. Collingwood Magpies at Optus
-Saturday Afternoon: Hawthorn Hawks vs. Essendon Bombers at MCG
+Saturday Afternoon: Hawthorn Hawks vs. West Coast Eagles at MCG
 Saturday Evening: No Game
 Saturday Night: Gold Coast Suns vs. Brisbane Lions at HBS
 Saturday Night: North Melbourne Kangaroos vs. St Kilda Saints at Marvel
 Sunday Afternoon: Greater Western Sydney Giants vs. Adelaide Crows at Giants
 Sunday Evening: Port Adelaide Power vs. Richmond Tigers at Adelaide Oval
-Sunday Evening: Western Bulldogs vs. West Coast Eagles at Marvel
+Sunday Evening: Western Bulldogs vs. Essendon Bombers at Marvel
 Round 21:
 Thursday Night: St Kilda Saints vs. Western Bulldogs at Marvel
 Friday Night: Sydney Swans vs. Richmond Tigers at SCG
