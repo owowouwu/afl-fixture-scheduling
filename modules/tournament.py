@@ -66,10 +66,11 @@ class Tournament:
         if game_played.shape[1] == 0:
             print(f"{self.timeslots[t]['name']}: No Game")
             return
-        home = game_played[0][0]
-        away = game_played[1][0]
-        stad = game_played[2][0]
-        self.print_game(home, away, stad, r, t)
+        for j in range(game_played.shape[1]):
+            home = game_played[0][j]
+            away = game_played[1][j]
+            stad = game_played[2][j]
+            self.print_game(home, away, stad, t)
         
     def print_round_game(self, i, j,s, t,r):
         print(f"Round {r}, {self.timeslots[t]['name']}: {self.cnames[i]} vs. {self.cnames[j]} at {self.snames[s]}")
@@ -189,24 +190,30 @@ class Tournament:
         
 
         for i in self.C:
-            if sum(fixture[i, j, s, t, r] for j in self.C for s in self.S for t in self.T for r in self.R) != 11: # 11 home games
-                violated += 1 # Number of home games
+            n_home_games = sum(fixture[i, j, s, t, r] for j in self.C for s in self.S for t in self.T for r in self.R)
+            if n_home_games != 11: # 11 home games
+                critical += abs(n_home_games - 11) # Number of home games
                 if debug:
-                    print(f"Violated constraint for total number of home games for team {self.cnames[i]}")
+                    print(f"Violated critical constraint for total number of home games for team {self.cnames[i]}. Played {n_home_games} home games.")
 
             for r in self.R:
                 if sum(fixture[i][j][s][t][r] + fixture[j][i][s][t][r] for j in self.C for s in self.S for t in self.T) == 0:
                     critical += 1
                     if debug: print(f"Violated critical constraint - {self.cnames[i]} did not play during round {r}")
 
-            
-            violated += sum(fixture[i, j, s, t, r] 
-                                    for j in self.C 
-                                    for s in list(set(self.S).difference(self.teams[i]['home_stadiums'])) 
-                                    for t in self.T for r in self.R) # Home games outside home ground
+            home_stadium_diff = list(set(self.S).difference(self.teams[i]['home_stadiums']))
+            n_games_outside_home = sum(fixture[i,j,s,t,r] for j in self.C for s in home_stadium_diff for t in self.T for r in self.R)
+            if n_games_outside_home > 0:
+                critical += n_games_outside_home
+                if debug: print(f"Violated critical constraint - team {self.cnames[i]} played {n_games_outside_home} games outside home.")
+                                                            
+
+            # violated += sum(fixture[i, j, s, t, r] 
+            #                         for j in self.C 
+            #                         for s in list(set(self.S).difference(self.teams[i]['home_stadiums'])) 
+            #                         for t in self.T for r in self.R) # Home games outside home ground
 
             if sum(fixture[i, i, s, t, r] for s in self.S for t in self.T for r in self.R) > 0:
-                violated += vs  # Can't play yourself
                 critical += vs
                 if debug: print(f"Violated critical constraint - {self.cnames[i]} is listed as playing itself.")
 
@@ -222,11 +229,17 @@ class Tournament:
                     if debug:
                         print(f"Violated constraint - {self.cnames[i]} played {self.cnames[j]} {vs} times")
             
+                for r in self.R[:-1]:
+                    played_early = max(0,sum(fixture[i][j][s][t][r] + fixture[j][i][s][t][r] for s in self.S for t in [5,6])+ 
+                                sum(fixture[i, j, s, t, r+1]+fixture[j, i, s, t, r+1] for s in self.S for t in [0]) - 1)
+                    if played_early:
+                        print(f"Violated constraint - {self.cnames[i]} played {self.cnames[j]} again too soon.")
+
             for r in self.R[:-2]:
-                if sum(fixture[j][i][s][t][r_]+fixture[i][j][s][t][r_] for j in self.C for s in self.teams[i]['home_stadiums']
+                if sum(fixture[j][i][s][t][r_]+fixture[i][j][s][t][r_] for j in self.C for s in self.teams[i]['home_location_stadiums']
                                  for t in self.T for r_ in range(r,r+3)) == 0:
                     violated += 1
-                    if debug: print(f"Violated constraint - {self.cnames[i]} played consecutive rounds rounds {r},{r+1},{r+2} outside of home stadium")
+                    if debug: print(f"Violated constraint - {self.cnames[i]} played consecutive rounds rounds {r},{r+1},{r+2} outside of home location")
 
             for r in self.R[:-3]:
                 if sum(fixture[i, j, s, t, r_] for j in self.C for s in self.T for t in self.T for r_ in range(r,r+4)) == 0:
@@ -239,13 +252,11 @@ class Tournament:
             for s in self.S:
                 if sum(fixture[i, j, s, t, r] for i in self.C for j in self.C for t in [2,3,4]) > 1: # 2+ Saturday games in stadium
                     violated += 1
-                    critical += 1
                     if debug:
                         print(f"Violated critical constraint - 2+ Saturday games at stadium {self.snames[s]} in round {r}")
                     
                 if sum(fixture[i, j, s, t, r] for i in self.C for j in self.C for t in [5,6]) > 1: # 2+ Sunday games in stadium
                     violated += 1
-                    critical += 1
                     if debug:
                         print(f"Violated critical constraint - 2+ Sunday games at stadium {self.snames[s]} in round {r}")
 
@@ -257,13 +268,6 @@ class Tournament:
                 if sum(fixture[i][j][s][t][r] for i in self.C for j in self.C for s in self.S) > 2:
                     violated += 1
                     if debug: print(f"Violated constraint - more than 2 games played on {self.timeslots[t]['name']} in round {r}")
-
-
-        # Four away games in a row
-        for i in self.C:
-            for r in self.R[:-3]:
-                violated += max(0,1-sum(fixture[i, j, s, t, r_] for j in self.C for s in self.S for t in self.T for r_ in range(r,r+4)))
-
     
 
         return violated, critical

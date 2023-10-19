@@ -45,6 +45,7 @@ def main(seed,year, iterations, rcl_length , greedy_constructor, do_ils, ils_ite
     np.save(f'solutions/greedy/{year}-greedy2-{seed}.npy', schedule)
     print("objective: ", obj)
     print("constraints violated: ", tourn.feasibility(schedule, debug=True))
+    tourn.print_fixture()
 
 if __name__ == '__main__':
     rcl_length = 10

@@ -148,7 +148,6 @@ class GreedyScheduler:
 
         # shuffle games to select teams randomly
         game_list = self.generate_game_list(shuffle=True)
-        print("Game list", game_list)
         games_left = [
             match for rounds in game_list for match in rounds
         ]
@@ -162,7 +161,7 @@ class GreedyScheduler:
         timeslot_usage = np.zeros((initial_rounds, self.n_timeslots))
         stadium_usage = np.zeros((initial_rounds, 2, self.n_stadiums))
 
-        print("Developing initial rounds.\n")
+        if print_fixture: print("Developing initial rounds.\n")
         games_not_found = 0
         # construct schedule for first 18 rounds
         while games_to_play > 0:
@@ -182,7 +181,7 @@ class GreedyScheduler:
                 assignment = random.choice(candidates)
                 stadium, timeslot, r = assignment
             except:
-                print(
+                if print_fixture: print(
                     f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered, switching home and away")
                 team1, team2 = team2, team1
                 candidates, scores = self.find_rts(team1, team2, rcl_length, weight_matrix_init)
@@ -190,7 +189,7 @@ class GreedyScheduler:
                     assignment = random.choice(candidates)
                     stadium, timeslot = assignment
                 except:
-                    print(f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered, using soft weighting")
+                    if print_fixture: print(f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered, using soft weighting")
                     candidates, scores = self.find_rts(team1, team2, rcl_length, soft_weight_matrix)
 
             initial_fixture_matrix[team1, team2, stadium, timeslot, r] = 1
@@ -272,7 +271,7 @@ class GreedyScheduler:
         final_fixture = np.concatenate((initial_fixture_matrix, extra_fixture_matrix), axis = 4)
         stadium_usage = np.concatenate((stadium_usage, stadium_usage_e), axis = 0)
         timeslot_usage = np.concatenate((timeslot_usage, timeslot_usage_e), axis = 0)
-        print("\nDone!\n")
+        if print_fixture: print("\nDone!\n")
         return final_fixture, timeslot_usage, stadium_usage
 
 
@@ -322,7 +321,7 @@ class GreedyScheduler:
                     assignment = random.choice(candidates)
                     stadium, timeslot = assignment
                 except:
-                    print(f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered, using soft weighting")
+                    if print_fixture: print(f"Did not find game - {self.tourn.cnames[team1]} vs. {self.tourn.cnames[team2]} being considered, using soft weighting")
                     candidates, scores = self.find_slot_for_team(team1, team2, r, soft_weight_matrix, rcl_length)
                     assignment = random.choice(candidates)
                     stadium, timeslot = assignment
@@ -388,7 +387,7 @@ class GreedyScheduler:
         final_fixture = np.concatenate((initial_fixture_matrix, extra_fixture_matrix), axis = 4)
         stadium_usage = np.concatenate((stadium_usage, stadium_usage_e), axis = 0)
         timeslot_usage = np.concatenate((timeslot_usage, timeslot_usage_e), axis = 0)
-        print("\nDone!\n")
+        if print_fixture: print("\nDone!\n")
         return final_fixture, timeslot_usage, stadium_usage
 
     def grasp_heuristic(self, seed, iterations, rcl_length = 10, greedy_constructor = 'by_round', do_ils = False, ils_iterations = 100,

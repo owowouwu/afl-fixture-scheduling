@@ -46,20 +46,20 @@ class IteratedLocalSearch:
         return -1
 
 
-    def random_neighbour(self,schedule):
+    def random_neighbour(self,schedule, debug=False):
         #Function that gets a random neighbour, choosing which neighbourhood to explore with a particular probability
         #Parameters for tuning likeliness of using a particular neighbourhood function
         a = 0.33
         b = 0.66
         p = r.rand()
         if p<a:
-            print('Swapping a home and away')
+            if debug: print('Swapping a home and away')
             new_schedule = self.random_neighbour_home_swap(schedule)
         elif p>=a and p<b:
-            print('Moving a match')
+            if debug: print('Moving a match')
             new_schedule = self.random_neighbour_match_move(schedule)
         else:
-            print('Swapping a double-play')
+            if debug: print('Swapping a double-play')
             new_schedule = self.random_neighbour_double_swap(schedule)
         
         return new_schedule
